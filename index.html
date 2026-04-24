@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0048)file:///C:/Users/hlevitin/Downloads/index_4.html -->
+<!-- saved from url=(0048)file:///C:/Users/hlevitin/Downloads/index_5.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -197,8 +197,8 @@ table.mkt-t tr:last-child td{border-bottom:none}
 <aside class="sidebar">
   <div class="sidebar-logo"><h1>Producer<br>Daily Tracker</h1><div class="date" id="sidebar-date">Fri, Apr 24</div></div>
   <nav class="nav">
-    <div class="ni" onclick="switchTab(&#39;renewals&#39;,this)"><span class="ico">↻</span>Renewals<span class="nb" id="nb-r">0</span></div>
-    <div class="ni active" onclick="switchTab(&#39;newbiz&#39;,this)"><span class="ico">★</span>New Business<span class="nb" id="nb-n">5</span></div>
+    <div class="ni active" onclick="switchTab(&#39;renewals&#39;,this)"><span class="ico">↻</span>Renewals<span class="nb" id="nb-r">0</span></div>
+    <div class="ni" onclick="switchTab(&#39;newbiz&#39;,this)"><span class="ico">★</span>New Business<span class="nb" id="nb-n">5</span></div>
     <div class="ni" onclick="switchTab(&#39;pipeline&#39;,this)"><span class="ico">◈</span>Pipeline<span class="nb" id="nb-p">0</span></div>
     <div class="ni" onclick="switchTab(&#39;daily&#39;,this)"><span class="ico">☰</span>Daily checklist</div>
   </nav>
@@ -207,7 +207,7 @@ table.mkt-t tr:last-child td{border-bottom:none}
 <main class="main">
 
   <!-- RENEWALS -->
-  <div class="section" id="sec-renewals">
+  <div class="section visible" id="sec-renewals">
     <div class="page-stats" id="ps-renewals">
     <div class="pstat ps-red"><div class="pstat-label">Effective ≤ 7 days</div><div class="pstat-value">0</div><div class="pstat-sub">Urgent attention</div></div>
     <div class="pstat ps-amber"><div class="pstat-label">Effective ≤ 14 days</div><div class="pstat-value">0</div><div class="pstat-sub">Coming up soon</div></div>
@@ -222,10 +222,7 @@ table.mkt-t tr:last-child td{border-bottom:none}
     <span>Producer</span>
     <span class="th-filter " onclick="window._toggleDropdown(event,&#39;renewals-producer&#39;)" id="thf-renewals-producer">
       <span class="fa">▽</span>
-      <div class="col-dropdown " id="dd-renewals-producer">
-    <div class="col-dropdown-item selected" onclick="window._setFilter(&#39;renewals&#39;,&#39;producer&#39;,&#39;All&#39;)">
-      <span class="check">✓</span>All
-    </div></div>
+      <div class="col-dropdown " id="dd-renewals-producer"><div style="padding:8px 16px;font-family:var(--mono);font-size:11px;color:var(--text3)">No values yet</div></div>
     </span>
   </span></th>
     <th style="min-width:140px">Client</th>
@@ -233,10 +230,7 @@ table.mkt-t tr:last-child td{border-bottom:none}
     <span>CSR</span>
     <span class="th-filter " onclick="window._toggleDropdown(event,&#39;renewals-csr&#39;)" id="thf-renewals-csr">
       <span class="fa">▽</span>
-      <div class="col-dropdown " id="dd-renewals-csr">
-    <div class="col-dropdown-item selected" onclick="window._setFilter(&#39;renewals&#39;,&#39;csr&#39;,&#39;All&#39;)">
-      <span class="check">✓</span>All
-    </div></div>
+      <div class="col-dropdown " id="dd-renewals-csr"><div style="padding:8px 16px;font-family:var(--mono);font-size:11px;color:var(--text3)">No values yet</div></div>
     </span>
   </span></th>
     <th style="min-width:120px">Effective date</th>
@@ -261,7 +255,7 @@ table.mkt-t tr:last-child td{border-bottom:none}
   </div>
 
   <!-- NEW BUSINESS -->
-  <div class="section visible" id="sec-newbiz">
+  <div class="section" id="sec-newbiz">
     <div class="page-stats" id="ps-newbiz">
     <div class="pstat ps-red"><div class="pstat-label">Effective ≤ 7 days</div><div class="pstat-value">0</div><div class="pstat-sub">Urgent attention</div></div>
     <div class="pstat ps-amber"><div class="pstat-label">Effective ≤ 14 days</div><div class="pstat-value">0</div><div class="pstat-sub">Coming up soon</div></div>
@@ -276,9 +270,10 @@ table.mkt-t tr:last-child td{border-bottom:none}
     <span>Producer</span>
     <span class="th-filter " onclick="window._toggleDropdown(event,&#39;newbiz-producer&#39;)" id="thf-newbiz-producer">
       <span class="fa">▽</span>
-      <div class="col-dropdown " id="dd-newbiz-producer">
-    <div class="col-dropdown-item selected" onclick="window._setFilter(&#39;newbiz&#39;,&#39;producer&#39;,&#39;All&#39;)">
-      <span class="check">✓</span>All
+      <div class="col-dropdown " id="dd-newbiz-producer"><div class="col-dropdown-item " onclick="window._toggleFilterVal(&#39;newbiz&#39;,&#39;producer&#39;,&#39;Menachem&#39;)">
+      <span class="check"></span>Menachem
+    </div><div class="col-dropdown-item " onclick="window._toggleFilterVal(&#39;newbiz&#39;,&#39;producer&#39;,&#39;Menachem/Mendy&#39;)">
+      <span class="check"></span>Menachem/Mendy
     </div></div>
     </span>
   </span></th>
@@ -287,11 +282,7 @@ table.mkt-t tr:last-child td{border-bottom:none}
     <span>CSR</span>
     <span class="th-filter " onclick="window._toggleDropdown(event,&#39;newbiz-csr&#39;)" id="thf-newbiz-csr">
       <span class="fa">▽</span>
-      <div class="col-dropdown " id="dd-newbiz-csr">
-    <div class="col-dropdown-item selected" onclick="window._setFilter(&#39;newbiz&#39;,&#39;csr&#39;,&#39;All&#39;)">
-      <span class="check">✓</span>All
-    </div>
-    <div class="col-dropdown-item " onclick="window._setFilter(&#39;newbiz&#39;,&#39;csr&#39;,&#39;Hannah&#39;)">
+      <div class="col-dropdown " id="dd-newbiz-csr"><div class="col-dropdown-item " onclick="window._toggleFilterVal(&#39;newbiz&#39;,&#39;csr&#39;,&#39;Hannah&#39;)">
       <span class="check"></span>Hannah
     </div></div>
     </span>
@@ -303,7 +294,7 @@ table.mkt-t tr:last-child td{border-bottom:none}
     <th style="min-width:140px">Action needed</th>
     <th style="min-width:190px"></th>
   </tr></thead><tbody id="newbiz-body"><tr class="mr" id="mr-newbiz-moc2c6lhv2c2trmycl">
-    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-size:13px;color:var(--text2)">Menachem</td>
     <td style="font-weight:600">I R Leasing, LLC (Gary)</td>
     <td style="font-size:13px;color:var(--text2)">Hannah</td>
     <td style="font-family:var(--mono);font-size:13px">2026-05-09</td>
@@ -331,7 +322,7 @@ table.mkt-t tr:last-child td{border-bottom:none}
       </div>
     </td>
   </tr><tr class="mr" id="mr-newbiz-mobym7cjjcpjgsfdk8h">
-    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-size:13px;color:var(--text2)">Menachem</td>
     <td style="font-weight:600">Invictus Glassworks TN LLC</td>
     <td style="font-size:13px;color:var(--text2)">Hannah</td>
     <td style="font-family:var(--mono);font-size:13px">2026-05-16</td>
@@ -359,7 +350,7 @@ table.mkt-t tr:last-child td{border-bottom:none}
       </div>
     </td>
   </tr><tr class="mr" id="mr-newbiz-mobyo18zf6trtqtrwzq">
-    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-size:13px;color:var(--text2)">Menachem</td>
     <td style="font-weight:600">PSQ Holding, LLC (Michelle)</td>
     <td style="font-size:13px;color:var(--text2)">Hannah</td>
     <td style="font-family:var(--mono);font-size:13px">2026-05-17</td>
@@ -451,7 +442,7 @@ table.mkt-t tr:last-child td{border-bottom:none}
       </div>
     </td>
   </tr><tr class="mr" id="mr-newbiz-mobyqw7p9iqlqam9q0w">
-    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-size:13px;color:var(--text2)">Menachem</td>
     <td style="font-weight:600">MINBRO NORTHCHASE, LLC (Yitz)</td>
     <td style="font-size:13px;color:var(--text2)">Hannah</td>
     <td style="font-family:var(--mono);font-size:13px">2026-06-08</td>
@@ -511,7 +502,7 @@ table.mkt-t tr:last-child td{border-bottom:none}
       </div>
     </td>
   </tr><tr class="mr" id="mr-newbiz-moc2m435h6wxtl9638">
-    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-size:13px;color:var(--text2)">Menachem/Mendy</td>
     <td style="font-weight:600">RSW Umbrella</td>
     <td style="font-size:13px;color:var(--text2)">Hannah</td>
     <td style="font-family:var(--mono);font-size:13px">2026-06-08</td>
@@ -624,7 +615,7 @@ const db = getFirestore(app);
 let S = { renewals:[], newbiz:[], prospects:[], checkState:{morning:{},mid:{},eod:{},comp:{}} };
 let openMkt={}, editNote={}, editRow={};
 let undoStack=null, undoTimer=null;
-let activeFilters = { renewals:{producer:'All',csr:'All'}, newbiz:{producer:'All',csr:'All'} };
+let activeFilters = { renewals:{producer:[],csr:[]}, newbiz:{producer:[],csr:[]} };
 let showProducer = { renewals:true, newbiz:true };
 let openDropdown = null;
 
@@ -715,19 +706,24 @@ window._toggleProducer=function(type){
 // DROPDOWN FILTER HEADER
 function filterDropdownHtml(type,field,label){
   const key=type+'-'+field;
-  const current=activeFilters[type][field];
-  const isFiltered=current!=='All';
+  const selected=activeFilters[type][field];
+  const isFiltered=selected.length>0;
   const vals=[...new Set(S[type].map(r=>r[field]||'').filter(Boolean))].sort();
   const isOpen=openDropdown===key;
-  const items=['All',...vals].map(v=>`
-    <div class="col-dropdown-item ${current===v?'selected':''}" onclick="window._setFilter('${type}','${field}','${esc(v)}')">
-      <span class="check">${current===v?'✓':''}</span>${esc(v)}
-    </div>`).join('');
+  // clear all button
+  const clearBtn=isFiltered?`<div class="col-dropdown-item" onclick="window._clearFilter('${type}','${field}')"><span class="check" style="color:var(--red)">✕</span>Clear filter</div><hr style="margin:4px 0;border:none;border-top:1px solid var(--border)"/>`:'' ;
+  const items=vals.map(v=>{
+    const checked=selected.includes(v);
+    return`<div class="col-dropdown-item ${checked?'selected':''}" onclick="window._toggleFilterVal('${type}','${field}','${esc(v)}')">
+      <span class="check">${checked?'✓':''}</span>${esc(v)}
+    </div>`;
+  }).join('');
+  const emptyMsg=vals.length===0?'<div style="padding:8px 16px;font-family:var(--mono);font-size:11px;color:var(--text3)">No values yet</div>':'';
   return`<span class="th-inner">
-    <span>${label}</span>
+    <span>${label}${isFiltered?` <span style="font-family:var(--mono);font-size:9px;background:var(--accent);color:#fff;padding:1px 5px;border-radius:99px;margin-left:3px">${selected.length}</span>`:''}</span>
     <span class="th-filter ${isFiltered?'active-filter':''}" onclick="window._toggleDropdown(event,'${key}')" id="thf-${key}">
       <span class="fa">${isFiltered?'▼':'▽'}</span>
-      <div class="col-dropdown ${isOpen?'open':''}" id="dd-${key}">${items}</div>
+      <div class="col-dropdown ${isOpen?'open':''}" id="dd-${key}">${clearBtn}${items}${emptyMsg}</div>
     </span>
   </span>`;
 }
@@ -737,15 +733,29 @@ window._toggleDropdown=function(e,key){
   closeAllDropdowns();
   if(!wasOpen){openDropdown=key;const dd=document.getElementById('dd-'+key);if(dd)dd.classList.add('open');}
 };
-window._setFilter=function(type,field,val){
-  activeFilters[type][field]=val;closeAllDropdowns();renderType(type);
+window._toggleFilterVal=function(type,field,val){
+  const arr=activeFilters[type][field];
+  const idx=arr.indexOf(val);
+  if(idx>=0)arr.splice(idx,1);else arr.push(val);
+  // re-render dropdown in place without closing
+  renderThead(type);
+  renderType(type);
+  // reopen dropdown
+  openDropdown=type+'-'+field;
+  const dd=document.getElementById('dd-'+type+'-'+field);
+  if(dd)dd.classList.add('open');
+};
+window._clearFilter=function(type,field){
+  activeFilters[type][field]=[];
+  closeAllDropdowns();
+  renderType(type);
 };
 
 function getFiltered(type){
   const pf=activeFilters[type].producer,cf=activeFilters[type].csr;
   return S[type].filter(r=>{
-    const pm=pf==='All'||(r.producer||'')===pf;
-    const cm=cf==='All'||(r.csr||'')===cf;
+    const pm=pf.length===0||pf.includes(r.producer||'');
+    const cm=cf.length===0||cf.includes(r.csr||'');
     return pm&&cm;
   });
 }
