@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0048)file:///C:/Users/hlevitin/Downloads/index_6.html -->
+<!-- saved from url=(0048)file:///C:/Users/hlevitin/Downloads/index_7.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -215,8 +215,8 @@ table.mkt-t tr:last-child td{border-bottom:none}
 <aside class="sidebar">
   <div class="sidebar-logo"><h1>Producer<br>Daily Tracker</h1><div class="date" id="sidebar-date">Mon, Apr 27</div></div>
   <nav class="nav">
-    <div class="ni" onclick="switchTab(&#39;renewals&#39;,this)"><span class="ico">↻</span>Renewals<span class="nb" id="nb-r">0</span></div>
-    <div class="ni active" onclick="switchTab(&#39;newbiz&#39;,this)"><span class="ico">★</span>New Business<span class="nb" id="nb-n">10</span></div>
+    <div class="ni active" onclick="switchTab(&#39;renewals&#39;,this)"><span class="ico">↻</span>Renewals<span class="nb" id="nb-r">0</span></div>
+    <div class="ni" onclick="switchTab(&#39;newbiz&#39;,this)"><span class="ico">★</span>New Business<span class="nb" id="nb-n">10</span></div>
     <div class="nav-divider"></div>
     <div class="ni" onclick="switchTab(&#39;bound&#39;,this)"><span class="ico">✓</span>Bound Policies<span class="nb" id="nb-b">0</span></div>
     <div class="ni" onclick="switchTab(&#39;dead&#39;,this)"><span class="ico">✕</span>Dead Accounts<span class="nb" id="nb-d">0</span></div>
@@ -229,7 +229,7 @@ table.mkt-t tr:last-child td{border-bottom:none}
 <main class="main">
 
   <!-- RENEWALS -->
-  <div class="section" id="sec-renewals">
+  <div class="section visible" id="sec-renewals">
     <div class="page-stats" id="ps-renewals">
     <div class="pstat ps-red"><div class="pstat-label">Effective ≤ 7 days</div><div class="pstat-value">0</div><div class="pstat-sub">Urgent</div></div>
     <div class="pstat ps-amber"><div class="pstat-label">Effective ≤ 14 days</div><div class="pstat-value">0</div><div class="pstat-sub">Coming up</div></div>
@@ -270,7 +270,7 @@ table.mkt-t tr:last-child td{border-bottom:none}
   </div>
 
   <!-- NEW BUSINESS -->
-  <div class="section visible" id="sec-newbiz">
+  <div class="section" id="sec-newbiz">
     <div class="page-stats" id="ps-newbiz">
     <div class="pstat ps-red"><div class="pstat-label">Effective ≤ 7 days</div><div class="pstat-value">1</div><div class="pstat-sub">Urgent</div></div>
     <div class="pstat ps-amber"><div class="pstat-label">Effective ≤ 14 days</div><div class="pstat-value">2</div><div class="pstat-sub">Coming up</div></div>
@@ -817,17 +817,20 @@ function parseAccount(raw){
 // EXCEL COLOR → section mapping
 function classifyRowColor(fillColor){
   if(!fillColor)return'white';
-  const hex=String(fillColor).toLowerCase().replace('#','');
-  if(!hex||hex==='ffffff'||hex==='000000'||hex.length<6)return'white';
+  const hex=String(fillColor).toUpperCase().replace('#','');
+  if(!hex||hex.length<6)return'white';
+  // Exact matches from your Excel file
+  if(hex==='C2F1C8')return'green';   // Bound
+  if(hex==='FFCCCFF'||hex==='FFCCFF')return'pink'; // Dead
+  if(hex==='FFFF99')return'yellow';  // New Business or Bound with task
+  // Fallback fuzzy matching
   const r=parseInt(hex.slice(0,2),16);
   const g=parseInt(hex.slice(2,4),16);
   const b=parseInt(hex.slice(4,6),16);
-  // Pink: high red, medium green, low-medium blue
-  if(r>180&&g<160&&b<160&&r>g&&r>b)return'pink';
-  // Yellow: high red+green, low blue
-  if(r>180&&g>160&&b<120)return'yellow';
-  // Green: high green, lower red+blue
-  if(g>150&&r<180&&b<150&&g>r&&g>b)return'green';
+  if(isNaN(r)||isNaN(g)||isNaN(b))return'white';
+  if(r>210&&g>210&&b<150)return'yellow';
+  if(g>200&&r<210&&b<210&&g>r)return'green';
+  if(r>200&&b>200&&g<180)return'pink';
   return'white';
 }
 
@@ -890,12 +893,17 @@ window._handleExcelFile=function(input){
       const effRaw=getVal(colEff);
       const notesRaw=String(getVal(colNotes)||'').trim();
       if(!accountRaw&&!producer)continue;
-      // get fill color from first cell of row
+      // get fill color from first cell of row - read fgColor.rgb
       let fillColor='';
       for(let c=range.s.c;c<=range.e.c;c++){
         const cellAddr=XLSX.utils.encode_cell({r,c});
         const cell=ws[cellAddr];
-        if(cell&&cell.s&&cell.s.fgColor&&cell.s.fgColor.rgb){fillColor=cell.s.fgColor.rgb;break;}
+        if(cell&&cell.s){
+          const fg=cell.s.fgColor;
+          if(fg&&fg.rgb&&fg.rgb!=='00000000'&&fg.rgb!=='FFFFFFFF'){
+            fillColor=fg.rgb;break;
+          }
+        }
       }
       const colorClass=classifyRowColor(fillColor);
       const effParsed=parseDate(effRaw);
