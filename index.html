@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- saved from url=(0048)file:///C:/Users/hlevitin/Downloads/index_7.html -->
+<!-- saved from url=(0048)file:///C:/Users/hlevitin/Downloads/index_9.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Producer Daily Tracker</title>
-<link href="./Producer Daily Tracker_files/css2" rel="stylesheet">
-<script src="./Producer Daily Tracker_files/xlsx.full.min.js.download"></script>
+<link href="./Producer Daily Tracker - UPDATED_files/css2" rel="stylesheet">
+<script src="./Producer Daily Tracker - UPDATED_files/xlsx.full.min.js.download"></script>
 <style>
 :root{--bg:#F5F3EE;--surface:#fff;--surface2:#EDEBE5;--border:#D8D4CB;--border-strong:#B8B3A8;--text:#1A1916;--text2:#6B6760;--text3:#9E9A93;--accent:#1B4332;--accent2:#2D6A4F;--accent-light:#D8F3DC;--red:#C1121F;--red-bg:#FFE8E9;--amber:#8B5E00;--amber-bg:#FFF3CD;--blue:#1A3A6B;--blue-bg:#E8F0FF;--purple:#4A2D80;--purple-bg:#EDE8FF;--green:#1B4332;--green-bg:#D8F3DC;--r:8px;--rl:12px;--mono:'DM Mono',monospace;--sans:'Sora',sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -878,13 +878,22 @@ window._handleExcelFile=function(input){
     // find column indices
     let colProducer=-1,colAccount=-1,colEff=-1,colNotes=-1;
     Object.entries(headers).forEach(([c,h])=>{
-      if(h.includes('producer'))colProducer=+c;
-      else if(h.includes('account')||h.includes('client'))colAccount=+c;
-      else if(h.includes('eff')||h.includes('date'))colEff=+c;
-      else if(h.includes('note'))colNotes=+c;
+      const hc=h.toLowerCase().trim();
+      if(hc.includes('producer'))colProducer=+c;
+      if(hc.includes('account')||hc.includes('client')||hc==='name')colAccount=+c;
+      if(hc.includes('eff')||hc.includes('date')||hc.includes('eff date'))colEff=+c;
+      if(hc.includes('note'))colNotes=+c;
     });
+    // fallback: if no account col found, use col 1 (B); if no eff col, use col 2 (C); if no notes col, use col 3 (D)
+    if(colAccount<0)colAccount=1;
+    if(colEff<0)colEff=2;
+    if(colNotes<0)colNotes=3;
+    if(colProducer<0)colProducer=0;
     const rows=[];
     const today=new Date();today.setHours(0,0,0,0);
+    console.log('Headers found:', headers);
+    console.log('colProducer:',colProducer,'colAccount:',colAccount,'colEff:',colEff,'colNotes:',colNotes);
+    console.log('Total rows to scan:', range.e.r - range.s.r);
     for(let r=range.s.r+1;r<=range.e.r;r++){
       const getCell=(c)=>c>=0?ws[XLSX.utils.encode_cell({r,c})]:null;
       const getVal=(c)=>{const cell=getCell(c);return cell?cell.v:'';};
@@ -892,7 +901,7 @@ window._handleExcelFile=function(input){
       const accountRaw=String(getVal(colAccount)||'').trim();
       const effRaw=getVal(colEff);
       const notesRaw=String(getVal(colNotes)||'').trim();
-      if(!accountRaw&&!producer)continue;
+      if(!accountRaw&&!producer&&!String(getVal(colEff)||'').trim())continue;
       // get fill color from first cell of row - read fgColor.rgb
       let fillColor='';
       for(let c=range.s.c;c<=range.e.c;c++){
@@ -906,6 +915,7 @@ window._handleExcelFile=function(input){
         }
       }
       const colorClass=classifyRowColor(fillColor);
+      console.log(`Row ${r}: account="${accountRaw}" fill="${fillColor}" color=${colorClass}`);
       const effParsed=parseDate(effRaw);
       const effIsDate=isValidDate(effParsed);
       const effDate=effIsDate?new Date(effParsed):null;
