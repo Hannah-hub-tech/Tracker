@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)file:///C:/Users/hlevitin/Downloads/menachem_1.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menachem New Buiz</title>
+<link href="./Menachem New Buiz_files/css2" rel="stylesheet">
+<style>
+:root{--bg:#F5F3EE;--surface:#fff;--surface2:#EDEBE5;--border:#D8D4CB;--border-strong:#B8B3A8;--text:#1A1916;--text2:#6B6760;--text3:#9E9A93;--accent:#1B4332;--accent2:#2D6A4F;--accent-light:#D8F3DC;--red:#C1121F;--red-bg:#FFE8E9;--amber:#8B5E00;--amber-bg:#FFF3CD;--blue:#1A3A6B;--blue-bg:#E8F0FF;--r:8px;--rl:12px;--mono:'DM Mono',monospace;--sans:'Sora',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:15px;min-height:100vh}
+
+/* ── Header ── */
+.header{background:var(--accent);padding:0;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1300px;margin:0 auto}
+.header-brand{display:flex;align-items:center;gap:14px}
+.header-logo{font-family:var(--mono);font-size:11px;font-weight:500;color:rgba(255,255,255,.45);letter-spacing:.08em;text-transform:uppercase;line-height:1.4}
+.header-logo a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
+.header-logo a:hover{color:rgba(255,255,255,.75)}
+.header-divider{width:1px;height:24px;background:rgba(255,255,255,.15)}
+.header-title{font-family:var(--sans);font-size:16px;font-weight:600;color:#fff;display:flex;align-items:center;gap:8px}
+.header-count{background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);font-family:var(--mono);font-size:11px;padding:2px 9px;border-radius:99px}
+.header-right{display:flex;align-items:center;gap:8px}
+.sync-indicator{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:6px}
+.sync-dot{width:7px;height:7px;border-radius:50%;background:#74C69D;flex-shrink:0}
+.sync-dot.syncing{background:#E9A800;animation:pulse .8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── Main ── */
+.main{padding:24px 28px;max-width:1300px;margin:0 auto}
+
+/* ── Upload zone ── */
+.upload-zone{background:var(--surface);border:2px dashed var(--border-strong);border-radius:var(--rl);padding:24px;text-align:center;cursor:pointer;transition:all .15s;margin-bottom:18px;position:relative}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--accent2);background:var(--accent-light)}
+.upload-zone input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.upload-icon{font-size:26px;margin-bottom:6px}
+.upload-title{font-weight:600;font-size:14px;color:var(--text);margin-bottom:3px}
+.upload-sub{font-size:12px;color:var(--text3)}
+
+/* ── Toolbar ── */
+.toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:10px;flex-wrap:wrap}
+.toolbar-left{display:flex;align-items:center;gap:8px}
+.search-input{padding:7px 12px;border:1px solid var(--border);border-radius:var(--r);font-size:13px;background:var(--surface);color:var(--text);outline:none;width:220px;font-family:var(--sans);transition:border-color .15s}
+.search-input:focus{border-color:var(--accent2)}
+.csr-select{padding:7px 10px;border:1px solid var(--border);border-radius:var(--r);font-size:13px;background:var(--surface);color:var(--text);outline:none;font-family:var(--sans);cursor:pointer;min-width:130px}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:var(--r);border:1px solid var(--border-strong);background:var(--surface);cursor:pointer;font-family:var(--sans);font-size:13px;color:var(--text2);transition:all .12s}
+.btn:hover{background:var(--surface2);color:var(--text)}
+.btn-p{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-p:hover{background:var(--accent2)}
+.btn-s{padding:5px 12px;font-size:12px}
+.btn-danger{background:var(--red-bg);color:var(--red);border-color:var(--red)}
+.btn-danger:hover{background:#fecaca}
+.edit-btn{background:none;border:1px solid var(--border);border-radius:var(--r);cursor:pointer;color:var(--text2);font-size:12px;padding:3px 10px;font-family:var(--mono);transition:all .12s}
+.edit-btn:hover{background:var(--blue-bg);color:var(--blue);border-color:var(--blue)}
+.del-btn{background:none;border:none;cursor:pointer;color:var(--text3);font-size:18px;line-height:1;padding:2px 5px;border-radius:4px}
+.del-btn:hover{color:var(--red);background:var(--red-bg)}
+
+/* ── Card / Table ── */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:0;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.tw{overflow-x:auto}
+table.mt{width:100%;border-collapse:collapse;font-size:14px;min-width:700px}
+table.mt th{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--text3);text-align:left;padding:12px 14px;border-bottom:2px solid var(--border);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;cursor:pointer;user-select:none;background:#FAFAF8}
+table.mt th:hover{color:var(--text)}
+table.mt td{padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text)}
+table.mt tbody tr:nth-child(odd) td{background:#FAFAF8}
+table.mt tbody tr:hover td{background:#F0EEE8!important}
+table.mt tbody tr:last-child td{border-bottom:none}
+.col-csr{font-weight:600;color:var(--accent2);white-space:nowrap;width:110px}
+.col-client{font-weight:600;width:200px}
+.col-date{font-family:var(--mono);font-size:12px;color:var(--text2);white-space:nowrap;width:90px}
+.col-notes{font-size:13px;color:var(--text2);line-height:1.5;max-width:360px}
+.col-actions{white-space:nowrap;width:110px}
+.action-col{display:flex;align-items:center;gap:5px}
+
+/* ── Empty state ── */
+.empty-state{padding:48px 24px;text-align:center;color:var(--text3)}
+.empty-icon{font-size:32px;margin-bottom:10px;opacity:.4}
+.empty-title{font-weight:600;margin-bottom:4px;color:var(--text);font-size:15px}
+.empty-sub{font-size:12px}
+
+/* ── Stats bar ── */
+.stats-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:14px 18px;border-top:3px solid var(--border)}
+.stat-card.sc-green{border-top-color:#2D6A4F}
+.stat-card.sc-amber{border-top-color:#E9A800}
+.stat-card.sc-blue{border-top-color:var(--blue)}
+.stat-label{font-family:var(--mono);font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+.stat-value{font-family:var(--mono);font-size:28px;font-weight:500;color:var(--text);line-height:1}
+.stat-sub{font-size:11px;color:var(--text3);margin-top:2px}
+
+/* ── Modal ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:500;display:flex;align-items:center;justify-content:center}
+.modal-overlay.hidden{display:none}
+.modal{background:var(--surface);border-radius:var(--rl);padding:28px;max-width:520px;width:92%;box-shadow:0 8px 40px rgba(0,0,0,.2);animation:slideUp .18s ease}
+@keyframes slideUp{from{transform:translateY(14px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal h2{font-size:16px;font-weight:600;margin-bottom:16px}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:18px}
+.fg{display:flex;flex-direction:column;gap:4px;margin-bottom:14px}
+.fg label{font-family:var(--mono);font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.05em}
+.fg input,.fg textarea{padding:8px 10px;border:1px solid var(--border);border-radius:var(--r);font-family:var(--sans);font-size:14px;background:var(--surface);color:var(--text);outline:none}
+.fg textarea{resize:vertical;min-height:72px}
+.fg input:focus,.fg textarea:focus{border-color:var(--accent2)}
+
+/* ── Preview modal ── */
+.preview-modal{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:600;display:flex;align-items:center;justify-content:center}
+.preview-modal.hidden{display:none}
+.preview-box{background:var(--surface);border-radius:var(--rl);padding:24px;max-width:800px;width:95%;box-shadow:0 8px 40px rgba(0,0,0,.2);max-height:90vh;display:flex;flex-direction:column;animation:slideUp .18s ease}
+.preview-box h2{font-size:15px;font-weight:600;margin-bottom:4px}
+.preview-box p{font-size:12px;color:var(--text3);margin-bottom:10px}
+.preview-badge{background:var(--accent-light);color:var(--accent);font-family:var(--mono);font-size:11px;font-weight:600;padding:2px 10px;border-radius:99px;display:inline-block;margin-bottom:10px}
+.preview-scroll{overflow-y:auto;flex:1;border:1px solid var(--border);border-radius:var(--r);margin-bottom:14px}
+table.prev-t{width:100%;border-collapse:collapse;font-size:12px}
+table.prev-t th{font-family:var(--mono);font-size:10px;color:var(--text3);text-align:left;padding:7px 10px;border-bottom:1px solid var(--border);text-transform:uppercase;background:#FAFAF8;position:sticky;top:0}
+table.prev-t td{padding:6px 8px;border-bottom:1px solid var(--border)}
+table.prev-t input{width:100%;padding:4px 7px;border:1px solid var(--border);border-radius:4px;font-size:12px;font-family:var(--sans);outline:none;background:var(--surface)}
+table.prev-t input:focus{border-color:var(--accent2)}
+.preview-actions{display:flex;justify-content:flex-end;gap:8px}
+
+/* ── Undo toast ── */
+.undo-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1A1916;color:#fff;font-family:var(--mono);font-size:13px;padding:12px 20px;border-radius:var(--rl);display:flex;align-items:center;gap:14px;z-index:9999;box-shadow:0 4px 24px rgba(0,0,0,.3);transition:opacity .3s;opacity:0;pointer-events:none;white-space:nowrap}
+.undo-toast.show{opacity:1;pointer-events:all}
+.undo-btn{background:#74C69D;color:#1B4332;border:none;border-radius:var(--r);padding:5px 14px;font-family:var(--mono);font-size:12px;cursor:pointer;font-weight:500}
+
+/* ── Loading ── */
+.loading-screen{position:fixed;inset:0;background:var(--accent);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;gap:14px}
+.loading-screen h2{font-family:var(--mono);font-size:13px;color:rgba(255,255,255,.75);letter-spacing:.1em;text-transform:uppercase}
+.spinner{width:32px;height:32px;border:3px solid rgba(255,255,255,.2);border-top-color:#74C69D;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:700px){.stats-bar{grid-template-columns:1fr 1fr}.header-inner{padding:12px 16px}.main{padding:14px 16px}.toolbar{flex-direction:column;align-items:stretch}.toolbar-left{flex-wrap:wrap}.search-input{width:100%}}
+</style>
+<script src="./Menachem New Buiz_files/mammoth.browser.min.js.download"></script></head>
+<body>
+
+<div class="loading-screen" id="loading-screen" style="display: none;">
+  <div class="spinner"></div>
+  <h2>Loading...</h2>
+</div>
+
+<div class="undo-toast" id="undo-toast">
+  <span id="undo-msg">Deleted</span>
+  <button class="undo-btn" onclick="doUndo()">Undo</button>
+</div>
+
+<!-- ADD / EDIT MODAL -->
+<div class="modal-overlay hidden" id="modal">
+  <div class="modal">
+    <h2 id="modal-title">Add Entry</h2>
+    <div class="fg"><label>CSR</label><input type="text" id="f-csr" placeholder="e.g. Menachem, Hannah, Israel"></div>
+    <div class="fg"><label>Client Name</label><input type="text" id="f-client" placeholder="Account / client name"></div>
+    <div class="fg"><label>Effective Date</label><input type="text" id="f-date" placeholder="e.g. 5/16, 7/1/26, 10/1"></div>
+    <div class="fg"><label>Notes</label><textarea id="f-notes" placeholder="Details, follow-up actions, status…"></textarea></div>
+    <div class="modal-actions">
+      <button class="btn btn-s" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-p btn-s" onclick="saveEntry()">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- IMPORT PREVIEW MODAL -->
+<div class="preview-modal hidden" id="preview-modal">
+  <div class="preview-box">
+    <h2>📄 Parsed from Word doc — review before importing</h2>
+    <p>Edit any fields below, then click Import All to save.</p>
+    <span class="preview-badge" id="preview-count">0 entries</span>
+    <div class="preview-scroll">
+      <table class="prev-t">
+        <thead><tr><th>CSR</th><th>Client Name</th><th>Eff. Date</th><th>Notes</th></tr></thead>
+        <tbody id="preview-body"></tbody>
+      </table>
+    </div>
+    <div class="preview-actions">
+      <button class="btn btn-s" onclick="closePreview()">Cancel</button>
+      <button class="btn btn-p btn-s" onclick="confirmImport()">⬆ Import All</button>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <div class="header-logo">
+        <a href="file:///C:/Users/hlevitin/Downloads/index.html">← Producer Daily Tracker</a>
+      </div>
+      <div class="header-divider"></div>
+      <div class="header-title">
+        📋 Menachem New Buiz
+        <span class="header-count" id="header-count">0</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="sync-indicator">
+        <span class="sync-dot" id="sync-dot"></span>
+        <span id="sync-label">Live sync</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- Stats -->
+  <div class="stats-bar" id="stats-bar">
+    <div class="stat-card sc-blue"><div class="stat-label">Total Records</div><div class="stat-value" id="stat-total">0</div><div class="stat-sub">All entries</div></div>
+    <div class="stat-card sc-amber"><div class="stat-label">Unique CSRs</div><div class="stat-value" id="stat-csrs">0</div><div class="stat-sub">Assigned reps</div></div>
+    <div class="stat-card sc-green"><div class="stat-label">Unique Clients</div><div class="stat-value" id="stat-clients">0</div><div class="stat-sub">Accounts tracked</div></div>
+  </div>
+
+  <!-- Upload zone -->
+  <div class="upload-zone" id="upload-zone">
+    <input type="file" id="doc-input" accept=".docx" onchange="handleFile(this)">
+    <div class="upload-icon">📄</div>
+    <div class="upload-title">Drop a Word doc here, or click to browse</div>
+    <div class="upload-sub">Supports .docx — parses into CSR · Client · Effective Date · Notes</div>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <input type="text" class="search-input" id="search" placeholder="🔍  Search client, CSR, notes…" oninput="renderTable()">
+      <select class="csr-select" id="csr-filter" onchange="renderTable()"><option value="">All CSRs</option></select>
+    </div>
+    <button class="btn btn-p" onclick="openAdd()">＋ Add Entry</button>
+  </div>
+
+  <!-- Table -->
+  <div class="card">
+    <div class="tw">
+      <table class="mt">
+        <thead>
+          <tr>
+            <th onclick="sortBy(&#39;csr&#39;)">CSR <span id="sort-csr">↕</span></th>
+            <th onclick="sortBy(&#39;clientName&#39;)">Client Name <span id="sort-clientName">↕</span></th>
+            <th onclick="sortBy(&#39;effectiveDate&#39;)">Eff. Date <span id="sort-effectiveDate">↕</span></th>
+            <th>Notes</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+    <div id="empty-state" class="empty-state" style="display: block;">
+      <div class="empty-icon">📂</div>
+      <div class="empty-title">No records yet</div>
+      <div class="empty-sub">Upload a Word doc above or click + Add Entry to get started</div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<script>
+(function(){
+  var s=document.createElement('script');
+  s.src='https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js';
+  document.head.appendChild(s);
+})();
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+import { getFirestore, collection, doc, onSnapshot, setDoc, deleteDoc }
+  from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAeHWuMhz6ct9iG4HKmR_2xtn7_IpuNAr4",
+  authDomain: "omni-cc5fa.firebaseapp.com",
+  projectId: "omni-cc5fa",
+  storageBucket: "omni-cc5fa.firebasestorage.app",
+  messagingSenderId: "480869318348",
+  appId: "1:480869318348:web:4b11a90feecb88f8e0cc69"
+};
+
+const app = initializeApp(firebaseConfig);
+const db  = getFirestore(app);
+const COL = 'menachemnewbuiz';
+
+// ── State ──
+let records    = [];
+let editingId  = null;
+let sortCol    = 'effectiveDate';
+let sortDir    = 1;
+let pending    = [];
+let undoFn     = null;
+let undoTimer  = null;
+
+// ── Expose to global ──
+window.renderTable  = renderTable;
+window.sortBy       = sortBy;
+window.openAdd      = openAdd;
+window.closeModal   = closeModal;
+window.saveEntry    = saveEntry;
+window.editEntry    = editEntry;
+window.deleteEntry  = deleteEntry;
+window.closePreview = closePreview;
+window.confirmImport = confirmImport;
+window.handleFile   = handleFile;
+window.doUndo       = doUndo;
+
+// ── Helpers ──
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2); }
+function setSyncing(v){
+  const d=document.getElementById('sync-dot'), l=document.getElementById('sync-label');
+  if(d) d.classList.toggle('syncing',v);
+  if(l) l.textContent = v ? 'Saving…' : 'Live sync';
+}
+function showUndo(msg, fn){
+  if(undoTimer) clearTimeout(undoTimer);
+  undoFn = fn;
+  const t=document.getElementById('undo-toast');
+  document.getElementById('undo-msg').textContent = msg;
+  t.classList.add('show');
+  undoTimer = setTimeout(()=>{ t.classList.remove('show'); undoFn=null; }, 6000);
+}
+function doUndo(){ if(undoFn){ undoFn(); undoFn=null; } document.getElementById('undo-toast').classList.remove('show'); if(undoTimer) clearTimeout(undoTimer); }
+
+// ── Firebase listener ──
+onSnapshot(collection(db, COL), snap => {
+  records = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+  renderTable();
+  renderStats();
+  document.getElementById('loading-screen').style.display = 'none';
+});
+
+// ── Stats ──
+function renderStats(){
+  const total = records.length;
+  const csrs  = new Set(records.map(r=>r.csr).filter(Boolean)).size;
+  const clients = new Set(records.map(r=>r.clientName).filter(Boolean)).size;
+  document.getElementById('stat-total').textContent   = total;
+  document.getElementById('stat-csrs').textContent    = csrs;
+  document.getElementById('stat-clients').textContent = clients;
+  document.getElementById('header-count').textContent = total;
+}
+
+// ── Render table ──
+function renderTable(){
+  const search = (document.getElementById('search').value||'').toLowerCase();
+  const csrF   = (document.getElementById('csr-filter').value||'').toLowerCase();
+
+  let filtered = records.filter(r => {
+    const ms = !search ||
+      (r.clientName||'').toLowerCase().includes(search) ||
+      (r.csr||'').toLowerCase().includes(search) ||
+      (r.notes||'').toLowerCase().includes(search);
+    const mc = !csrF || (r.csr||'').toLowerCase() === csrF;
+    return ms && mc;
+  });
+
+  filtered.sort((a,b) => {
+    let va = (a[sortCol]||'').toString().toLowerCase();
+    let vb = (b[sortCol]||'').toString().toLowerCase();
+    return va < vb ? -sortDir : va > vb ? sortDir : 0;
+  });
+
+  // CSR filter dropdown
+  const csrs = [...new Set(records.map(r=>r.csr).filter(Boolean))].sort();
+  const sel  = document.getElementById('csr-filter');
+  const cur  = sel.value;
+  sel.innerHTML = '<option value="">All CSRs</option>' +
+    csrs.map(c=>`<option value="${c.toLowerCase()}"${cur===c.toLowerCase()?' selected':''}>${esc(c)}</option>`).join('');
+
+  const tbody = document.getElementById('table-body');
+  const empty = document.getElementById('empty-state');
+
+  if(filtered.length === 0){
+    tbody.innerHTML = '';
+    empty.style.display = records.length === 0 ? 'block' : 'none';
+    return;
+  }
+  empty.style.display = 'none';
+
+  tbody.innerHTML = filtered.map(r => `
+    <tr>
+      <td class="col-csr">${esc(r.csr||'—')}</td>
+      <td class="col-client">${esc(r.clientName||'—')}</td>
+      <td class="col-date">${esc(r.effectiveDate||'—')}</td>
+      <td class="col-notes">${esc(r.notes||'—')}</td>
+      <td class="col-actions">
+        <div class="action-col">
+          <button class="edit-btn" onclick="editEntry('${r.id}')">Edit</button>
+          <button class="del-btn" onclick="deleteEntry('${r.id}')">×</button>
+        </div>
+      </td>
+    </tr>
+  `).join('');
+}
+
+// ── Sort ──
+function sortBy(col){
+  if(sortCol===col) sortDir=-sortDir; else { sortCol=col; sortDir=1; }
+  ['csr','clientName','effectiveDate'].forEach(c=>{
+    const el=document.getElementById('sort-'+c);
+    if(el) el.textContent = c===col ? (sortDir===1?'↑':'↓') : '↕';
+  });
+  renderTable();
+}
+
+// ── Add / Edit Modal ──
+function openAdd(){
+  editingId = null;
+  document.getElementById('modal-title').textContent = 'Add Entry';
+  ['f-csr','f-client','f-date','f-notes'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('modal').classList.remove('hidden');
+  setTimeout(()=>document.getElementById('f-client').focus(), 60);
+}
+function editEntry(id){
+  const r = records.find(x=>x.id===id); if(!r) return;
+  editingId = id;
+  document.getElementById('modal-title').textContent = 'Edit Entry';
+  document.getElementById('f-csr').value   = r.csr||'';
+  document.getElementById('f-client').value = r.clientName||'';
+  document.getElementById('f-date').value  = r.effectiveDate||'';
+  document.getElementById('f-notes').value = r.notes||'';
+  document.getElementById('modal').classList.remove('hidden');
+}
+function closeModal(){ document.getElementById('modal').classList.add('hidden'); }
+
+async function saveEntry(){
+  const entry = {
+    csr:           document.getElementById('f-csr').value.trim(),
+    clientName:    document.getElementById('f-client').value.trim(),
+    effectiveDate: document.getElementById('f-date').value.trim(),
+    notes:         document.getElementById('f-notes').value.trim(),
+  };
+  if(!entry.clientName && !entry.csr) return;
+  setSyncing(true);
+  try {
+    const id = editingId || uid();
+    await setDoc(doc(db, COL, id), { ...entry, id });
+  } finally { setSyncing(false); }
+  closeModal();
+}
+
+async function deleteEntry(id){
+  const r = records.find(x=>x.id===id); if(!r) return;
+  const snap = {...r};
+  setSyncing(true);
+  await deleteDoc(doc(db, COL, id));
+  setSyncing(false);
+  showUndo(esc(snap.clientName||'Entry')+' deleted', async()=>{
+    setSyncing(true);
+    await setDoc(doc(db, COL, snap.id), snap);
+    setSyncing(false);
+  });
+}
+
+// ── Docx Upload ──
+async function handleFile(input){
+  const file = input.files[0]; if(!file) return;
+  await parseDocx(file);
+  input.value='';
+}
+
+const zone = document.getElementById('upload-zone');
+zone.addEventListener('dragover', e=>{ e.preventDefault(); zone.classList.add('drag-over'); });
+zone.addEventListener('dragleave', ()=>zone.classList.remove('drag-over'));
+zone.addEventListener('drop', async e=>{
+  e.preventDefault(); zone.classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if(file && file.name.endsWith('.docx')) await parseDocx(file);
+  else alert('Please drop a .docx Word file.');
+});
+
+async function parseDocx(file){
+  try {
+    const buf = await file.arrayBuffer();
+    if(!window.mammoth){ alert('Parser still loading, please try again in a moment.'); return; }
+    const result = await window.mammoth.extractRawText({ arrayBuffer: buf });
+    const rows = textToRows(result.value);
+    if(rows.length===0){ alert('No entries found. The document may be empty or formatted unexpectedly.'); return; }
+    showPreview(rows);
+  } catch(err){
+    console.error(err);
+    alert('Could not read the file. Make sure it is a valid .docx Word document.');
+  }
+}
+
+function textToRows(text){
+  const csrNames = ['menachem','mendy','hannah','israel','wilson','yitz','stuart','ben','mathew','matthew','mrs. ruben'];
+  const lines = text.split('\n').map(l=>l.trim()).filter(Boolean);
+  const rows  = [];
+
+  for(const line of lines){
+    if(/^\d{1,2}\/\d{1,2}\s+new business/i.test(line)) continue;
+    if(line.length < 5) continue;
+    const clean = line.replace(/^[-–•*]\s*/,'').trim();
+    if(!clean) continue;
+
+    let clientName='', notes=clean, csr='', effectiveDate='';
+
+    const dashIdx = clean.search(/[-–]/);
+    if(dashIdx > 0){ clientName=clean.substring(0,dashIdx).trim(); notes=clean.substring(dashIdx+1).trim(); }
+    else { const w=clean.split(' '); clientName=w.slice(0,2).join(' '); notes=w.slice(2).join(' '); }
+
+    const dm = clean.match(/\b(\d{1,2}\/\d{1,2}(?:\/?\s*\d{2,4})?)\b/g);
+    if(dm) effectiveDate = dm[dm.length-1];
+
+    const cm = clean.match(/[-–]\s*([A-Za-z\/]+)\s*$/);
+    if(cm){ const c=cm[1].toLowerCase().replace('myself/','');
+      if(csrNames.some(n=>c.includes(n))){ csr=cm[1].replace(/^myself\//i,'').trim(); notes=notes.replace(/[-–]\s*[A-Za-z\/]+\s*$/,'').trim(); }}
+    const mm = clean.match(/myself\/(\w+)/i);
+    if(mm && !csr) csr=mm[1];
+
+    if(!clientName) continue;
+    rows.push({ csr, clientName, effectiveDate, notes: notes||clean });
+  }
+  return rows;
+}
+
+// ── Import Preview ──
+function showPreview(rows){
+  pending = rows.map(r=>({...r}));
+  document.getElementById('preview-count').textContent = rows.length+' entr'+(rows.length!==1?'ies':'y')+' found';
+  document.getElementById('preview-body').innerHTML = rows.map((r,i)=>`
+    <tr>
+      <td><input value="${esc(r.csr)}" oninput="pending[${i}].csr=this.value" style="min-width:80px"/></td>
+      <td><input value="${esc(r.clientName)}" oninput="pending[${i}].clientName=this.value" style="min-width:130px"/></td>
+      <td><input value="${esc(r.effectiveDate)}" oninput="pending[${i}].effectiveDate=this.value" style="min-width:65px"/></td>
+      <td><input value="${esc(r.notes)}" oninput="pending[${i}].notes=this.value"/></td>
+    </tr>
+  `).join('');
+  document.getElementById('preview-modal').classList.remove('hidden');
+}
+function closePreview(){ document.getElementById('preview-modal').classList.add('hidden'); pending=[]; }
+
+async function confirmImport(){
+  if(!pending.length) return;
+  const btn = document.querySelector('#preview-modal .btn-p');
+  btn.textContent='Importing…'; btn.disabled=true;
+  setSyncing(true);
+  for(const entry of pending){
+    if(!entry.clientName && !entry.csr) continue;
+    const id = uid();
+    await setDoc(doc(db, COL, id), { ...entry, id });
+  }
+  setSyncing(false);
+  btn.textContent='⬆ Import All'; btn.disabled=false;
+  closePreview();
+}
+</script>
+
+
+</body></html>
