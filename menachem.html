@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<!-- saved from url=(0051)file:///C:/Users/hlevitin/Downloads/menachem_2.html -->
+<!-- saved from url=(0051)file:///C:/Users/hlevitin/Downloads/menachem_6.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Menachem — New Buiz Tracker</title>
 <link href="./Menachem — New Buiz Tracker_files/css2" rel="stylesheet">
 <style>
-:root{--bg:#F5F3EE;--surface:#fff;--surface2:#EDEBE5;--border:#D8D4CB;--border-strong:#B8B3A8;--text:#1A1916;--text2:#6B6760;--text3:#9E9A93;--accent:#4A2D80;--accent2:#6B3FA0;--accent-light:#EDE8FF;--red:#C1121F;--red-bg:#FFE8E9;--amber:#8B5E00;--amber-bg:#FFF3CD;--blue:#1A3A6B;--blue-bg:#E8F0FF;--purple:#4A2D80;--purple-bg:#EDE8FF;--green:#1B4332;--green-bg:#D8F3DC;--r:8px;--rl:12px;--mono:'DM Mono',monospace;--sans:'Sora',sans-serif}
+:root{--bg:#F5F3EE;--surface:#fff;--surface2:#EDEBE5;--border:#D8D4CB;--border-strong:#B8B3A8;--text:#1A1916;--text2:#6B6760;--text3:#9E9A93;--accent:#3B1F6B;--accent2:#5B2FA0;--accent-light:#EDE8FF;--red:#C1121F;--red-bg:#FFE8E9;--amber:#8B5E00;--amber-bg:#FFF3CD;--blue:#1A3A6B;--blue-bg:#E8F0FF;--purple:#4A2D80;--purple-bg:#EDE8FF;--green:#1B4332;--green-bg:#D8F3DC;--r:8px;--rl:12px;--mono:'DM Mono',monospace;--sans:'Sora',sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:15px;min-height:100vh}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:15px;min-height:100vh;-webkit-font-smoothing:antialiased}
 .shell{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
 .sidebar{background:var(--accent);position:sticky;top:0;height:100vh;display:flex;flex-direction:column}
 .sidebar-logo{padding:24px 20px 20px;border-bottom:1px solid rgba(255,255,255,.1)}
@@ -40,9 +40,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:15
 .sec-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:20px;margin-bottom:16px}
 .tw{overflow-x:auto}
-table.mt{width:100%;border-collapse:collapse;font-size:14px;min-width:800px}
+table.mt{width:100%;border-collapse:collapse;font-size:14px;min-width:700px}
 table.mt th{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--text3);text-align:left;padding:0 10px 12px 0;border-bottom:2px solid var(--border);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;position:relative}
-table.mt td{padding:13px 10px 13px 0;border-bottom:1px solid var(--border);vertical-align:middle;color:var(--text)}
+table.mt td{padding:13px 10px 13px 0;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text)}
 table.mt tbody tr.mr:nth-child(odd) td{background:#FAFAF8}
 table.mt tbody tr.mr:hover td{background:#F0EEE8!important}
 .th-inner{display:inline-flex;align-items:center;gap:5px}
@@ -57,7 +57,7 @@ table.mt tbody tr.mr:hover td{background:#F0EEE8!important}
 .col-dropdown-item:hover{background:var(--surface2)}
 .col-dropdown-item.selected{color:var(--accent);font-weight:500;background:var(--accent-light)}
 .col-dropdown-item .check{font-size:11px;width:14px}
-.notes-cell{font-size:13px;color:var(--text2);line-height:1.6;white-space:pre-wrap;word-break:break-word}
+.notes-cell{font-size:13px;color:var(--text2);line-height:1.6;white-space:pre-wrap;word-break:break-word;max-width:400px}
 .en-btn{font-size:11px;color:var(--text3);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:3px;margin-top:3px;display:inline-block}
 .en-btn:hover{color:var(--accent2);background:var(--accent-light)}
 .ne{width:100%;min-height:56px;padding:6px 9px;border:1px solid var(--border);border-radius:var(--r);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;outline:none}
@@ -121,6 +121,12 @@ table.mkt-t tr:last-child td{border-bottom:none}
 .fg textarea{resize:vertical;min-height:64px}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--accent2)}
 .form-actions{display:flex;gap:6px;padding-top:12px}
+/* UPLOADS PANEL */
+.upload-batch{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:12px 16px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.upload-batch-info{font-family:var(--mono);font-size:12px;color:var(--text2)}
+.upload-batch-info strong{color:var(--text);font-size:13px;display:block;margin-bottom:2px}
+.upload-batch-del{background:none;border:1px solid var(--border);border-radius:var(--r);cursor:pointer;color:var(--text3);font-family:var(--mono);font-size:11px;padding:4px 10px;transition:all .12s}
+.upload-batch-del:hover{background:var(--red-bg);color:var(--red);border-color:var(--red)}
 /* DOCX DROP ZONE */
 .docx-zone{border:2px dashed var(--accent2);border-radius:var(--rl);padding:24px;text-align:center;cursor:pointer;transition:all .15s;margin-bottom:16px;background:var(--accent-light)}
 .docx-zone:hover{background:#ddd6fe}
@@ -180,7 +186,7 @@ table.mkt-t tr:last-child td{border-bottom:none}
     <div class="sub" id="sidebar-date">Tue, Apr 28</div>
   </div>
   <nav class="nav">
-    <div class="ni active" onclick="switchTab(&#39;newbiz&#39;,this)"><span class="ico">★</span>New Buiz<span class="nb" id="nb-n">0</span></div>
+    <div class="ni active" onclick="switchTab(&#39;newbiz&#39;,this)"><span class="ico">★</span>New Buiz<span class="nb" id="nb-n">28</span></div>
     <div class="ni" onclick="switchTab(&#39;pipeline&#39;,this)"><span class="ico">◈</span>Pipeline<span class="nb" id="nb-p">0</span></div>
     <div class="ni" onclick="switchTab(&#39;daily&#39;,this)"><span class="ico">☰</span>Checklist</div>
   </nav>
@@ -193,38 +199,621 @@ table.mkt-t tr:last-child td{border-bottom:none}
     <div class="page-stats" id="ps-newbiz">
     <div class="pstat ps-red"><div class="pstat-label">Effective ≤ 7 days</div><div class="pstat-value">0</div><div class="pstat-sub">Urgent</div></div>
     <div class="pstat ps-amber"><div class="pstat-label">Effective ≤ 14 days</div><div class="pstat-value">0</div><div class="pstat-sub">Coming up</div></div>
-    <div class="pstat ps-green"><div class="pstat-label">Effective 15+ days</div><div class="pstat-value">0</div><div class="pstat-sub">On the horizon</div></div></div>
+    <div class="pstat ps-green"><div class="pstat-label">Effective 15+ days</div><div class="pstat-value">15</div><div class="pstat-sub">On the horizon</div></div></div>
     <div class="sec-header">
       <span class="sec-title">New buiz</span>
       <div class="sec-actions">
         <button class="btn btn-doc" onclick="document.getElementById(&#39;docx-input&#39;).click()">📄 Upload Word doc</button>
+        <button class="btn btn-s" onclick="window._toggleUploads()" id="manage-uploads-btn">📋 Manage uploads</button>
         <button class="btn btn-s" onclick="toggleForm(&#39;nf&#39;)">+ Add</button>
       </div>
     </div>
     <input type="file" id="docx-input" accept=".docx,.doc" style="display:none" onchange="window._handleDocx(this)">
     <div class="docx-status" id="docx-status"></div>
+    <div id="uploads-panel" style="display:none;margin-bottom:16px"></div>
     <div class="card">
       <div class="tw"><table class="mt"><thead id="thead-newbiz"><tr>
-    <th><span class="th-inner"><span>Producer</span>
-    <span class="th-filter " onclick="window._toggleDropdown(event,&#39;newbiz-producer&#39;)" id="thf-newbiz-producer">
-      <span class="fa">▽</span>
-      <div class="col-dropdown " id="dd-newbiz-producer"><div style="padding:8px 16px;font-family:var(--mono);font-size:11px;color:var(--text3)">No values yet</div></div>
-    </span></span></th>
-    <th>Client</th>
     <th><span class="th-inner"><span>CSR</span>
     <span class="th-filter " onclick="window._toggleDropdown(event,&#39;newbiz-csr&#39;)" id="thf-newbiz-csr">
       <span class="fa">▽</span>
       <div class="col-dropdown " id="dd-newbiz-csr"><div style="padding:8px 16px;font-family:var(--mono);font-size:11px;color:var(--text3)">No values yet</div></div>
     </span></span></th>
+    <th>Client</th>
     <th>Effective date</th>
     <th>Days</th>
     <th>Notes</th>
-    <th>Action needed</th>
     <th></th>
-  </tr></thead><tbody id="newbiz-body"><tr><td colspan="8" style="color:var(--text3);font-size:14px;padding:18px 0;text-align:center">No entries yet — click + Add or upload a Word doc</td></tr></tbody></table></div>
+  </tr></thead><tbody id="newbiz-body"><tr class="mr" id="mr-nbiz-moiy8uf73907ig1faiq">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">4/27 New Business</td>
+    <td style="font-family:var(--mono);font-size:13px">2026-04-27</td>
+    <td><span class="badge br">1d ago</span></td>
+    <td><div class="notes-cell">4/27 New Business-</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf73907ig1faiq&#39;,&#39;nt-moiy8uf73907ig1faiq&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf73907ig1faiq&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf73907ig1faiq" onclick="window._togMkt(&#39;moiy8uf73907ig1faiq&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf73907ig1faiq&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf73907ig1faiq"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — 4/27 New Business</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf73907ig1faiq&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf73907ig1faiq"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf73907ig1faiq&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf72l2ezc7h7c7">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Avremi Baron</td>
+    <td style="font-family:var(--mono);font-size:13px"></td>
+    <td><span class="badge bx">TBD</span></td>
+    <td><div class="notes-cell">Avremi Baron- emailed him waiting on new app from Am Trust Philly or church.</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf72l2ezc7h7c7&#39;,&#39;nt-moiy8uf72l2ezc7h7c7&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf72l2ezc7h7c7&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf72l2ezc7h7c7" onclick="window._togMkt(&#39;moiy8uf72l2ezc7h7c7&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf72l2ezc7h7c7&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf72l2ezc7h7c7"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Avremi Baron</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf72l2ezc7h7c7&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf72l2ezc7h7c7"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf72l2ezc7h7c7&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7r9rfder5ih">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">CHMS Group</td>
+    <td style="font-family:var(--mono);font-size:13px"></td>
+    <td><span class="badge bx">TBD</span></td>
+    <td><div class="notes-cell">CHMS Group- Sent me 2 new facilities to work on-</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7r9rfder5ih&#39;,&#39;nt-moiy8uf7r9rfder5ih&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7r9rfder5ih&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7r9rfder5ih" onclick="window._togMkt(&#39;moiy8uf7r9rfder5ih&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7r9rfder5ih&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7r9rfder5ih"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — CHMS Group</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7r9rfder5ih&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7r9rfder5ih"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7r9rfder5ih&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf71ju5b0txv29">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Frankfurter group</td>
+    <td style="font-family:var(--mono);font-size:13px">2026-05-16</td>
+    <td><span class="badge bg">18d</span></td>
+    <td><div class="notes-cell">Frankfurter group- Have another policy with Grey Star follow up on 5/16 when they want to shop- Mrs. Ruben</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf71ju5b0txv29&#39;,&#39;nt-moiy8uf71ju5b0txv29&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf71ju5b0txv29&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf71ju5b0txv29" onclick="window._togMkt(&#39;moiy8uf71ju5b0txv29&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf71ju5b0txv29&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf71ju5b0txv29"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Frankfurter group</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf71ju5b0txv29&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf71ju5b0txv29"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf71ju5b0txv29&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7ezpxk1nya09">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">GL/PL</td>
+    <td style="font-family:var(--mono);font-size:13px">2026-06-01</td>
+    <td><span class="badge bg">34d</span></td>
+    <td><div class="notes-cell">GL/PL- have out to RT CRC and RRG and Don- Have Clearance from Knight, Ledge brook Saphire Blue, Magnolia, Nottingham, CRC-sent email to client today for additional info we need. 6/1</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7ezpxk1nya09&#39;,&#39;nt-moiy8uf7ezpxk1nya09&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7ezpxk1nya09&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7ezpxk1nya09" onclick="window._togMkt(&#39;moiy8uf7ezpxk1nya09&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7ezpxk1nya09&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7ezpxk1nya09"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — GL/PL</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7ezpxk1nya09&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7ezpxk1nya09"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7ezpxk1nya09&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf77xg94u133k7">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Eprine Atlanta</td>
+    <td style="font-family:var(--mono);font-size:13px">2026-08-02</td>
+    <td><span class="badge bg">96d</span></td>
+    <td><div class="notes-cell">Eprine Atlanta- Have info Wilson sent out 90 days before renewal. 8/2- Wilson</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf77xg94u133k7&#39;,&#39;nt-moiy8uf77xg94u133k7&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf77xg94u133k7&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf77xg94u133k7" onclick="window._togMkt(&#39;moiy8uf77xg94u133k7&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf77xg94u133k7&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf77xg94u133k7"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Eprine Atlanta</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf77xg94u133k7&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf77xg94u133k7"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf77xg94u133k7&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7dqymq24lvwf">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Gary Singh</td>
+    <td style="font-family:var(--mono);font-size:13px"></td>
+    <td><span class="badge bx">TBD</span></td>
+    <td><div class="notes-cell">Gary Singh- Hannah gave me marketing list speak to her tomorrow on it.</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7dqymq24lvwf&#39;,&#39;nt-moiy8uf7dqymq24lvwf&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7dqymq24lvwf&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7dqymq24lvwf" onclick="window._togMkt(&#39;moiy8uf7dqymq24lvwf&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7dqymq24lvwf&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7dqymq24lvwf"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Gary Singh</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7dqymq24lvwf&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7dqymq24lvwf"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7dqymq24lvwf&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf76t2bislng3q">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Golden Hillmont/ Golden Ventura Package</td>
+    <td style="font-family:var(--mono);font-size:13px"></td>
+    <td><span class="badge bx">TBD</span></td>
+    <td><div class="notes-cell">Golden Hillmont/ Golden Ventura Package – Israel has out to 2 markets and is in touch Denise for info.</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf76t2bislng3q&#39;,&#39;nt-moiy8uf76t2bislng3q&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf76t2bislng3q&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf76t2bislng3q" onclick="window._togMkt(&#39;moiy8uf76t2bislng3q&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf76t2bislng3q&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf76t2bislng3q"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Golden Hillmont/ Golden Ventura Package</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf76t2bislng3q&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf76t2bislng3q"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf76t2bislng3q&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7rqdalgp0zur">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Golden State</td>
+    <td style="font-family:var(--mono);font-size:13px"></td>
+    <td><span class="badge bx">TBD</span></td>
+    <td><div class="notes-cell">Golden State- GL/PL Master- followed up with Mathew Walton Isael sent follow up to our master policy request</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7rqdalgp0zur&#39;,&#39;nt-moiy8uf7rqdalgp0zur&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7rqdalgp0zur&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7rqdalgp0zur" onclick="window._togMkt(&#39;moiy8uf7rqdalgp0zur&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7rqdalgp0zur&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7rqdalgp0zur"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Golden State</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7rqdalgp0zur&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7rqdalgp0zur"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7rqdalgp0zur&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7x31ud2d1wv">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Golden State DIC</td>
+    <td style="font-family:var(--mono);font-size:13px">2026-06-07</td>
+    <td><span class="badge bg">40d</span></td>
+    <td><div class="notes-cell">Golden State DIC- Israel sent email for info he needs will follow up next week Tuesday.6/7- Israel</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7x31ud2d1wv&#39;,&#39;nt-moiy8uf7x31ud2d1wv&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7x31ud2d1wv&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7x31ud2d1wv" onclick="window._togMkt(&#39;moiy8uf7x31ud2d1wv&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7x31ud2d1wv&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7x31ud2d1wv"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Golden State DIC</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7x31ud2d1wv&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7x31ud2d1wv"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7x31ud2d1wv&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7cwnnhu09k3m">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Golden State WC</td>
+    <td style="font-family:var(--mono);font-size:13px"></td>
+    <td><span class="badge bx">TBD</span></td>
+    <td><div class="notes-cell">Golden State WC- Sent email to Insured asking for info needed to quote works comp master with Strategic Method and united heartland- follow up with Ben via text Wednesday</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7cwnnhu09k3m&#39;,&#39;nt-moiy8uf7cwnnhu09k3m&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7cwnnhu09k3m&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7cwnnhu09k3m" onclick="window._togMkt(&#39;moiy8uf7cwnnhu09k3m&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7cwnnhu09k3m&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7cwnnhu09k3m"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Golden State WC</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7cwnnhu09k3m&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7cwnnhu09k3m"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7cwnnhu09k3m&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7edowaq15w7f">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Height Street Auto</td>
+    <td style="font-family:var(--mono);font-size:13px"></td>
+    <td><span class="badge bx">TBD</span></td>
+    <td><div class="notes-cell">Height Street Auto- Israel sent email for info he needs follow up tomorrow</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7edowaq15w7f&#39;,&#39;nt-moiy8uf7edowaq15w7f&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7edowaq15w7f&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7edowaq15w7f" onclick="window._togMkt(&#39;moiy8uf7edowaq15w7f&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7edowaq15w7f&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7edowaq15w7f"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Height Street Auto</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7edowaq15w7f&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7edowaq15w7f"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7edowaq15w7f&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7f54j52ug35n">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Height Street property</td>
+    <td style="font-family:var(--mono);font-size:13px"></td>
+    <td><span class="badge bx">TBD</span></td>
+    <td><div class="notes-cell">Height Street property- Israel sent email for info he needs  follow up tomorrow.</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7f54j52ug35n&#39;,&#39;nt-moiy8uf7f54j52ug35n&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7f54j52ug35n&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7f54j52ug35n" onclick="window._togMkt(&#39;moiy8uf7f54j52ug35n&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7f54j52ug35n&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7f54j52ug35n"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Height Street property</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7f54j52ug35n&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7f54j52ug35n"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7f54j52ug35n&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf71y1n398upwq">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">LC3 Property in Nashville</td>
+    <td style="font-family:var(--mono);font-size:13px">2026-05-16</td>
+    <td><span class="badge bg">18d</span></td>
+    <td><div class="notes-cell">LC3 Property in Nashville renews 5/16 – Have options from Fowler on GL and Greico and Avalon for property need to see if client likes the limits and would be interested in such an option, Need answer from peter on firewalls in the attic for Westminster quote (Best Option) and fowler working on umbrella but we need to decided which quote we are taking. Call Stuart tomorrow if no quote.</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf71y1n398upwq&#39;,&#39;nt-moiy8uf71y1n398upwq&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf71y1n398upwq&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf71y1n398upwq" onclick="window._togMkt(&#39;moiy8uf71y1n398upwq&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf71y1n398upwq&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf71y1n398upwq"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — LC3 Property in Nashville</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf71y1n398upwq&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf71y1n398upwq"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf71y1n398upwq&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf78x3qzsjgrle">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Nova Assisted living</td>
+    <td style="font-family:var(--mono);font-size:13px"></td>
+    <td><span class="badge bx">TBD</span></td>
+    <td><div class="notes-cell">Nova Assisted living-  sent a follow up on new purchases and lines we can compete on call Monday if no response</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf78x3qzsjgrle&#39;,&#39;nt-moiy8uf78x3qzsjgrle&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf78x3qzsjgrle&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf78x3qzsjgrle" onclick="window._togMkt(&#39;moiy8uf78x3qzsjgrle&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf78x3qzsjgrle&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf78x3qzsjgrle"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Nova Assisted living</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf78x3qzsjgrle&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf78x3qzsjgrle"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf78x3qzsjgrle&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7c5csydvx6pv">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Oak Place speak to Hannah</td>
+    <td style="font-family:var(--mono);font-size:13px"></td>
+    <td><span class="badge bx">TBD</span></td>
+    <td><div class="notes-cell">Oak Place speak to Hannah- Hannah quoting direct sent to Stuart Hannah sent marketing list I attached to the file .</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7c5csydvx6pv&#39;,&#39;nt-moiy8uf7c5csydvx6pv&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7c5csydvx6pv&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7c5csydvx6pv" onclick="window._togMkt(&#39;moiy8uf7c5csydvx6pv&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7c5csydvx6pv&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7c5csydvx6pv"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Oak Place speak to Hannah</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7c5csydvx6pv&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7c5csydvx6pv"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7c5csydvx6pv&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7pd39ar3lnk">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Waiting for apps and loss</td>
+    <td style="font-family:var(--mono);font-size:13px"></td>
+    <td><span class="badge bx">TBD</span></td>
+    <td><div class="notes-cell">Waiting for apps and loss runs from client follow up Wenesday is no response.</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7pd39ar3lnk&#39;,&#39;nt-moiy8uf7pd39ar3lnk&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7pd39ar3lnk&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7pd39ar3lnk" onclick="window._togMkt(&#39;moiy8uf7pd39ar3lnk&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7pd39ar3lnk&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7pd39ar3lnk"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Waiting for apps and loss</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7pd39ar3lnk&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7pd39ar3lnk"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7pd39ar3lnk&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7au27dimhnlc">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Yankee Adler</td>
+    <td style="font-family:var(--mono);font-size:13px">2026-05-17</td>
+    <td><span class="badge bg">19d</span></td>
+    <td><div class="notes-cell">Yankee Adler- told Hannah to send a follow up to client on loss runs if no response Andrews RT working on prop and GL and CRC property and told Hannah to send to CRC gl  5/17.</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7au27dimhnlc&#39;,&#39;nt-moiy8uf7au27dimhnlc&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7au27dimhnlc&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7au27dimhnlc" onclick="window._togMkt(&#39;moiy8uf7au27dimhnlc&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7au27dimhnlc&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7au27dimhnlc"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Yankee Adler</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7au27dimhnlc&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7au27dimhnlc"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7au27dimhnlc&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7flqo5ydfd7t">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">RG Legacy</td>
+    <td style="font-family:var(--mono);font-size:13px">2026-06-07</td>
+    <td><span class="badge bg">40d</span></td>
+    <td><div class="notes-cell">RG Legacy- trying to quote with 6/7 Golden Haven comp with Strategic and standard markets. 7/1</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7flqo5ydfd7t&#39;,&#39;nt-moiy8uf7flqo5ydfd7t&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7flqo5ydfd7t&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7flqo5ydfd7t" onclick="window._togMkt(&#39;moiy8uf7flqo5ydfd7t&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7flqo5ydfd7t&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7flqo5ydfd7t"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — RG Legacy</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7flqo5ydfd7t&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7flqo5ydfd7t"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7flqo5ydfd7t&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7y4s6n1p46b">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Golden Haven</td>
+    <td style="font-family:var(--mono);font-size:13px">2026-06-07</td>
+    <td><span class="badge bg">40d</span></td>
+    <td><div class="notes-cell">Golden Haven- GL/PL-  . 6/7</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7y4s6n1p46b&#39;,&#39;nt-moiy8uf7y4s6n1p46b&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7y4s6n1p46b&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7y4s6n1p46b" onclick="window._togMkt(&#39;moiy8uf7y4s6n1p46b&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7y4s6n1p46b&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7y4s6n1p46b"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Golden Haven</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7y4s6n1p46b&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7y4s6n1p46b"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7y4s6n1p46b&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7icqqfgihf2q">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Yitz other accounts</td>
+    <td style="font-family:var(--mono);font-size:13px">2026-06-08</td>
+    <td><span class="badge bg">41d</span></td>
+    <td><div class="notes-cell">Yitz other accounts-  Minboro North chase 6/8- Hanover, Hartford Am Trust declined Have out to Stuart follow up Tuesday. 6/8</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7icqqfgihf2q&#39;,&#39;nt-moiy8uf7icqqfgihf2q&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7icqqfgihf2q&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7icqqfgihf2q" onclick="window._togMkt(&#39;moiy8uf7icqqfgihf2q&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7icqqfgihf2q&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7icqqfgihf2q"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Yitz other accounts</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7icqqfgihf2q&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7icqqfgihf2q"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7icqqfgihf2q&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7ufzadrtj37">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Red Horn</td>
+    <td style="font-family:var(--mono);font-size:13px">2026-06-13</td>
+    <td><span class="badge bg">46d</span></td>
+    <td><div class="notes-cell">Red Horn- got clearances from Rt and Morstan  sent them loss for Holister still waiting on belgold- 6/13-7/6</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7ufzadrtj37&#39;,&#39;nt-moiy8uf7ufzadrtj37&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7ufzadrtj37&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7ufzadrtj37" onclick="window._togMkt(&#39;moiy8uf7ufzadrtj37&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7ufzadrtj37&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7ufzadrtj37"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Red Horn</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7ufzadrtj37&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7ufzadrtj37"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7ufzadrtj37&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf70b6u6fh07bcr">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Property</td>
+    <td style="font-family:var(--mono);font-size:13px">2026-07-10</td>
+    <td><span class="badge bg">73d</span></td>
+    <td><div class="notes-cell">Property – Williamsville renews 7/10, Orleans 1/1 27 - Cleared with Travelers best play, will have info after call.</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf70b6u6fh07bcr&#39;,&#39;nt-moiy8uf70b6u6fh07bcr&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf70b6u6fh07bcr&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf70b6u6fh07bcr" onclick="window._togMkt(&#39;moiy8uf70b6u6fh07bcr&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf70b6u6fh07bcr&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf70b6u6fh07bcr"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Property</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf70b6u6fh07bcr&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf70b6u6fh07bcr"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf70b6u6fh07bcr&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7rk5cgv4j5cd">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Peak Point partners</td>
+    <td style="font-family:var(--mono);font-size:13px">2026-07-15</td>
+    <td><span class="badge bg">78d</span></td>
+    <td><div class="notes-cell">Peak Point partners- 7/15, got info from client sent back an email to clarify info. Hannah sent out to market in my folder- call client Thursday is no response to email.</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7rk5cgv4j5cd&#39;,&#39;nt-moiy8uf7rk5cgv4j5cd&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7rk5cgv4j5cd&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7rk5cgv4j5cd" onclick="window._togMkt(&#39;moiy8uf7rk5cgv4j5cd&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7rk5cgv4j5cd&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7rk5cgv4j5cd"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Peak Point partners</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7rk5cgv4j5cd&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7rk5cgv4j5cd"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7rk5cgv4j5cd&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7wl37yjyov5a">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">BRL 5 LLC</td>
+    <td style="font-family:var(--mono);font-size:13px">2026-07-18</td>
+    <td><span class="badge bg">81d</span></td>
+    <td><div class="notes-cell">BRL 5 LLC- told Hannah to send out Monday follow up with her Tuesday if no traction 7/18</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7wl37yjyov5a&#39;,&#39;nt-moiy8uf7wl37yjyov5a&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7wl37yjyov5a&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7wl37yjyov5a" onclick="window._togMkt(&#39;moiy8uf7wl37yjyov5a&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7wl37yjyov5a&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7wl37yjyov5a"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — BRL 5 LLC</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7wl37yjyov5a&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7wl37yjyov5a"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7wl37yjyov5a&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7kfmlumrkvvp">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Life Ride</td>
+    <td style="font-family:var(--mono);font-size:13px">2026-09-01</td>
+    <td><span class="badge bg">126d</span></td>
+    <td><div class="notes-cell">Life Ride- 9/1 WC renewal sent him a text waiting to hear back- Sent them an email follow up Next Tuesday if no answer. – Myself/mendy</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7kfmlumrkvvp&#39;,&#39;nt-moiy8uf7kfmlumrkvvp&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7kfmlumrkvvp&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7kfmlumrkvvp" onclick="window._togMkt(&#39;moiy8uf7kfmlumrkvvp&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7kfmlumrkvvp&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7kfmlumrkvvp"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Life Ride</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7kfmlumrkvvp&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7kfmlumrkvvp"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7kfmlumrkvvp&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf7jmmtkmjb19">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">Sam Masro properties</td>
+    <td style="font-family:var(--mono);font-size:13px"></td>
+    <td><span class="badge bx">TBD</span></td>
+    <td><div class="notes-cell">Sam Masro properties- Has renewal in July 182 Units Hannah gave me a marketing list.. asked client for loss runs as well as questions on building updateds call Monday if no response.</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf7jmmtkmjb19&#39;,&#39;nt-moiy8uf7jmmtkmjb19&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf7jmmtkmjb19&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf7jmmtkmjb19" onclick="window._togMkt(&#39;moiy8uf7jmmtkmjb19&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf7jmmtkmjb19&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf7jmmtkmjb19"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Sam Masro properties</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf7jmmtkmjb19&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf7jmmtkmjb19"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf7jmmtkmjb19&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr><tr class="mr" id="mr-nbiz-moiy8uf76fpfb3kdsn6">
+    <td style="font-size:13px;color:var(--text2)"></td>
+    <td style="font-weight:600">WC</td>
+    <td style="font-family:var(--mono);font-size:13px">2026-10-01</td>
+    <td><span class="badge bg">156d</span></td>
+    <td><div class="notes-cell">WC- 10/1 renewal- told client we will wait until 6/1 to start working on this.</div><button class="en-btn" onclick="window._startNote(&#39;moiy8uf76fpfb3kdsn6&#39;,&#39;nt-moiy8uf76fpfb3kdsn6&#39;)">edit</button></td>
+    <td><div class="action-col">
+      <button class="edit-btn" onclick="window._startEdit(&#39;moiy8uf76fpfb3kdsn6&#39;)">Edit</button>
+      <button class="mkt-btn  " id="mb-nbiz-moiy8uf76fpfb3kdsn6" onclick="window._togMkt(&#39;moiy8uf76fpfb3kdsn6&#39;)"><span class="arr">►</span> Marketing</button>
+      <span class="del-sep"></span>
+      <button class="del-btn" onclick="window._del(&#39;moiy8uf76fpfb3kdsn6&#39;)">×</button>
+    </div></td>
+  </tr>
+  
+  <tr class="mkt-row " id="mktrow-nbiz-moiy8uf76fpfb3kdsn6"><td colspan="7">
+    <div class="mkt-inner">
+      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — WC</span><button class="mkt-save" onclick="window._saveMkt(&#39;moiy8uf76fpfb3kdsn6&#39;)">Save</button></div>
+      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
+      <tbody id="mb-nbiz-moiy8uf76fpfb3kdsn6"></tbody></table>
+      <button class="mkt-add" onclick="window._addMktRow(&#39;moiy8uf76fpfb3kdsn6&#39;)">+ Add carrier / wholesaler</button>
+    </div>
+  </td></tr></tbody></table></div>
       <div class="add-form" id="nf">
         <div class="fr">
-          <div class="fg"><label>Producer</label><input type="text" id="n-producer" placeholder="Producer"></div>
           <div class="fg" style="flex:2"><label>Client name</label><input type="text" id="n-client" placeholder="Account name"></div>
           <div class="fg"><label>CSR</label><input type="text" id="n-csr" placeholder="CSR"></div>
           <div class="fg"><label>Effective date</label><input type="date" id="n-exp"></div>
@@ -325,7 +914,7 @@ function showUndo(msg,fn){
 window._undoDelete=function(){if(undoStack){undoStack();undoStack=null;}document.getElementById('undo-toast').classList.remove('show');if(undoTimer)clearTimeout(undoTimer);};
 
 function startListeners(){
-  onSnapshot(collection(db,COL.newbiz),snap=>{S.newbiz=snap.docs.map(d=>({id:d.id,...d.data()}));renderNewbiz();});
+  onSnapshot(collection(db,COL.newbiz),snap=>{S.newbiz=snap.docs.map(d=>({id:d.id,...d.data()}));renderNewbiz();const p=document.getElementById('uploads-panel');if(p&&p.style.display!=='none')window._renderUploadsPanel();});
   onSnapshot(collection(db,COL.prospects),snap=>{S.prospects=snap.docs.map(d=>({id:d.id,...d.data()}));renderPipeline();});
   onSnapshot(doc(db,COL.checklist,'data'),snap=>{CL=snap.exists()&&snap.data().sections?snap.data().sections:[];renderChecklist();});
   setTimeout(()=>{document.getElementById('loading').style.display='none';},1200);
@@ -390,9 +979,8 @@ window._startNote=function(id,k){editNote[k]=true;renderNewbiz();setTimeout(()=>
 window._saveNote=async function(id,k){const el=document.getElementById(k);if(!el)return;const r=S.newbiz.find(x=>x.id===id);if(r){r.notes=el.value;await saveRecord(COL.newbiz,r);}delete editNote[k];renderNewbiz();};
 
 function editRowHtml(row){
-  return`<tr class="edit-row-form"><td colspan="8">
+  return`<tr class="edit-row-form"><td colspan="7">
     <div class="edit-form-inner">
-      <div class="ef"><label>Producer</label><input type="text" id="ef-producer-${row.id}" value="${esc(row.producer||'')}"/></div>
       <div class="ef" style="flex:2"><label>Client</label><input type="text" id="ef-client-${row.id}" value="${esc(row.client||'')}"/></div>
       <div class="ef"><label>CSR</label><input type="text" id="ef-csr-${row.id}" value="${esc(row.csr||'')}"/></div>
       <div class="ef"><label>Effective date</label><input type="${isValidDate(row.exp)?'date':'text'}" id="ef-exp-${row.id}" value="${esc(row.exp||'')}"/></div>
@@ -409,7 +997,6 @@ window._startEdit=function(id){editRow[id]=true;renderNewbiz();setTimeout(()=>{c
 window._cancelEdit=function(id){delete editRow[id];renderNewbiz();};
 window._saveEdit=async function(id){
   const r=S.newbiz.find(x=>x.id===id);if(!r)return;
-  r.producer=document.getElementById('ef-producer-'+id).value.trim();
   r.client=document.getElementById('ef-client-'+id).value.trim()||r.client;
   r.csr=document.getElementById('ef-csr-'+id).value.trim();
   r.exp=document.getElementById('ef-exp-'+id).value||r.exp;
@@ -439,13 +1026,11 @@ function rowHtml(row){
       <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow('${row.id}',${i})">&#215;</button></td></tr>`;
   }).join('');
   return`<tr class="mr" id="mr-${k}">
-    <td style="font-size:13px;color:var(--text2)">${esc(row.producer||'')}</td>
-    <td style="font-weight:600">${esc(row.client)}</td>
     <td style="font-size:13px;color:var(--text2)">${esc(row.csr||'')}</td>
+    <td style="font-weight:600">${esc(row.client)}</td>
     <td style="font-family:var(--mono);font-size:13px">${row.exp||''}</td>
     <td>${isValidDate(row.exp)?daysBadge(du(row.exp)):'<span class="badge bx">TBD</span>'}</td>
     <td>${noteCell(row)}${mktDotsHtml(row.marketing)}</td>
-    <td style="font-size:13px;color:var(--text2)">${esc(row.action||'')}</td>
     <td><div class="action-col">
       <button class="edit-btn" onclick="window._startEdit('${row.id}')">Edit</button>
       <button class="mkt-btn ${isOpen?'open':''} ${cnt>0?'has-entries':''}" id="mb-${k}" onclick="window._togMkt('${row.id}')"><span class="arr">&#9658;</span> ${lbl}</button>
@@ -454,7 +1039,7 @@ function rowHtml(row){
     </div></td>
   </tr>
   ${isEditing?editRowHtml(row):''}
-  <tr class="mkt-row ${isOpen?'open':''}" id="mktrow-${k}"><td colspan="8">
+  <tr class="mkt-row ${isOpen?'open':''}" id="mktrow-${k}"><td colspan="7">
     <div class="mkt-inner">
       <div class="mkt-hdr"><span class="mkt-lbl">Marketing — ${esc(row.client)}</span><button class="mkt-save" onclick="window._saveMkt('${row.id}')">Save</button></div>
       <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
@@ -479,19 +1064,17 @@ function renderNewbiz(){
   });
   const thead=document.getElementById('thead-newbiz');
   if(thead)thead.innerHTML=`<tr>
-    <th>${filterDropdownHtml('producer','Producer')}</th>
-    <th>Client</th>
     <th>${filterDropdownHtml('csr','CSR')}</th>
+    <th>Client</th>
     <th>Effective date</th>
     <th>Days</th>
     <th>Notes</th>
-    <th>Action needed</th>
     <th></th>
   </tr>`;
   renderPageStats();
   document.getElementById('newbiz-body').innerHTML=arr.length
     ?arr.map(r=>rowHtml(r)).join('')
-    :'<tr><td colspan="8" style="color:var(--text3);font-size:14px;padding:18px 0;text-align:center">No entries yet — click + Add or upload a Word doc</td></tr>';
+    :'<tr><td colspan="7" style="color:var(--text3);font-size:14px;padding:18px 0;text-align:center">No entries yet — click + Add or upload a Word doc</td></tr>';
   document.getElementById('nb-n').textContent=S.newbiz.length;
 }
 
@@ -551,6 +1134,8 @@ window._handleDocx=async function(input){
     const text=result.value;
     const lines=text.split('\n').map(l=>l.trim()).filter(l=>l.length>3);
     const records=[];
+    const batchId=Date.now().toString(36);
+    const batchLabel='Upload — '+new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'})+' '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
     lines.forEach(line=>{
       const clean=line.replace(/^[-•*–\s]+/,'').trim();
       if(!clean||clean.length<3)return;
@@ -566,11 +1151,12 @@ window._handleDocx=async function(input){
       // extract client name
       const clientMatch=clean.match(/^([A-Z][\w\s&,\.\'-]+?)(?:\s*[-–]|\s*,|\s+renews|\s+\d{1,2}\/)/);
       const client=clientMatch?clientMatch[1].trim():clean.split(/[-–]/)[0].trim().split(' ').slice(0,5).join(' ');
-      records.push({id:uid(),producer:'',client,csr:'',exp,notes:clean,action:'Follow up',marketing:[]});
+      records.push({id:uid(),producer:'',client,csr:'',exp,notes:clean,action:'Follow up',marketing:[],uploadBatch:batchId,uploadLabel:batchLabel});
     });
     statusEl.textContent=`Found ${records.length} items — saving...`;
     for(const r of records)await saveRecord(COL.newbiz,r);
     statusEl.textContent=`✓ Imported ${records.length} items!`;
+    window._renderUploadsPanel();
     setTimeout(()=>{statusEl.style.display='none';},3000);
     input.value='';
   }catch(err){
@@ -579,6 +1165,39 @@ window._handleDocx=async function(input){
   }
 };
 
+window._toggleUploads=function(){
+  const panel=document.getElementById('uploads-panel');
+  if(panel.style.display==='none'){panel.style.display='block';window._renderUploadsPanel();}
+  else panel.style.display='none';
+};
+
+window._renderUploadsPanel=function(){
+  const panel=document.getElementById('uploads-panel');
+  // Group entries by uploadBatch
+  const batches={};
+  S.newbiz.forEach(r=>{
+    const key=r.uploadBatch||'manual';
+    if(!batches[key])batches[key]={key,label:r.uploadLabel||'Manually added',count:0,ids:[]};
+    batches[key].count++;
+    batches[key].ids.push(r.id);
+  });
+  const batchList=Object.values(batches).sort((a,b)=>b.key.localeCompare(a.key));
+  if(batchList.length===0){panel.innerHTML='<div style="font-family:var(--mono);font-size:12px;color:var(--text3);padding:10px 0">No entries yet.</div>';return;}
+  panel.innerHTML='<div style="font-family:var(--mono);font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">Uploaded batches</div>'
+    +batchList.map(b=>`<div class="upload-batch">
+      <div class="upload-batch-info"><strong>${esc(b.label)}</strong>${b.count} entr${b.count===1?'y':'ies'}</div>
+      <button class="upload-batch-del" onclick="window._deleteBatch('${b.key}','${esc(b.label)}',${b.count})">Delete batch</button>
+    </div>`).join('');
+};
+
+window._deleteBatch=async function(batchKey,label,count){
+  if(!confirm(`Delete "${label}" (${count} entries)? This cannot be undone.`))return;
+  setSyncing(true);
+  const toDelete=S.newbiz.filter(r=>(r.uploadBatch||'manual')===batchKey);
+  for(const r of toDelete)await deleteDoc(doc(db,COL.newbiz,r.id));
+  setSyncing(false);
+  window._renderUploadsPanel();
+};
 window.switchTab=function(name,el){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('visible'));
   document.querySelectorAll('.ni').forEach(n=>n.classList.remove('active'));
@@ -587,9 +1206,9 @@ window.switchTab=function(name,el){
 window.toggleForm=function(id){document.getElementById(id).classList.toggle('open');};
 window.addNewbiz=async function(){
   const c=document.getElementById('n-client').value.trim();if(!c)return;
-  const obj={id:uid(),producer:document.getElementById('n-producer').value.trim(),client:c,csr:document.getElementById('n-csr').value.trim(),exp:document.getElementById('n-exp').value,notes:document.getElementById('n-notes').value.trim(),action:document.getElementById('n-action').value.trim()||'Follow up',marketing:[]};
+  const obj={id:uid(),producer:'',client:c,csr:document.getElementById('n-csr').value.trim(),exp:document.getElementById('n-exp').value,notes:document.getElementById('n-notes').value.trim(),action:document.getElementById('n-action').value.trim()||'Follow up',marketing:[]};
   window.toggleForm('nf');
-  ['n-producer','n-client','n-csr','n-exp','n-notes','n-action'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  ['n-client','n-csr','n-exp','n-notes','n-action'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
   await saveRecord(COL.newbiz,obj);
 };
 window.addProspect=async function(){
