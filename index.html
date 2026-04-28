@@ -1,11 +1,8 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)file:///C:/Users/hlevitin/Downloads/index_11.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Producer Daily Tracker</title>
-<link href="./Producer Daily Tracker - FINAL_files/css2" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#F5F3EE;--surface:#fff;--surface2:#EDEBE5;--border:#D8D4CB;--border-strong:#B8B3A8;--text:#1A1916;--text2:#6B6760;--text3:#9E9A93;--accent:#1B4332;--accent2:#2D6A4F;--accent-light:#D8F3DC;--red:#C1121F;--red-bg:#FFE8E9;--amber:#8B5E00;--amber-bg:#FFF3CD;--blue:#1A3A6B;--blue-bg:#E8F0FF;--purple:#4A2D80;--purple-bg:#EDE8FF;--green:#1B4332;--green-bg:#D8F3DC;--r:8px;--rl:12px;--mono:'DM Mono',monospace;--sans:'Sora',sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -183,21 +180,65 @@ table.mkt-t tr:last-child td{border-bottom:none}
 .loading h2{font-family:var(--mono);font-size:14px;color:rgba(255,255,255,.8);letter-spacing:.1em;text-transform:uppercase}
 .spinner{width:34px;height:34px;border:3px solid rgba(255,255,255,.2);border-top-color:#74C69D;border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── MENACHEM NEW BUIZ TAB ── */
+.mnb-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:10px;flex-wrap:wrap}
+.mnb-left{display:flex;align-items:center;gap:8px}
+.mnb-search{padding:7px 12px;border:1px solid var(--border);border-radius:var(--r);font-size:13px;background:var(--surface);color:var(--text);outline:none;width:220px;font-family:var(--sans);transition:border-color .15s}
+.mnb-search:focus{border-color:var(--accent2)}
+.mnb-select{padding:7px 10px;border:1px solid var(--border);border-radius:var(--r);font-size:13px;background:var(--surface);color:var(--text);outline:none;font-family:var(--sans);cursor:pointer}
+/* docx upload zone inside card */
+.mnb-upload{border:2px dashed var(--border-strong);border-radius:var(--rl);padding:20px;text-align:center;cursor:pointer;transition:all .15s;margin-bottom:20px;position:relative}
+.mnb-upload:hover,.mnb-upload.drag-over{border-color:var(--accent2);background:var(--accent-light)}
+.mnb-upload input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.mnb-upload-icon{font-size:24px;margin-bottom:6px}
+.mnb-upload-title{font-weight:600;font-size:14px;margin-bottom:3px}
+.mnb-upload-sub{font-size:12px;color:var(--text3)}
+/* mnb table */
+table.mnb-t{width:100%;border-collapse:collapse;font-size:13px;min-width:700px}
+table.mnb-t th{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--text3);text-align:left;padding:0 10px 10px 0;border-bottom:2px solid var(--border);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;cursor:pointer;user-select:none}
+table.mnb-t th:hover{color:var(--text)}
+table.mnb-t td{padding:11px 10px 11px 0;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text)}
+table.mnb-t tbody tr:nth-child(odd) td{background:#FAFAF8}
+table.mnb-t tbody tr:hover td{background:#F0EEE8!important}
+.mnb-csr{font-weight:600;color:var(--accent2);font-size:13px;white-space:nowrap}
+.mnb-client{font-weight:600;font-size:13px}
+.mnb-date{font-family:var(--mono);font-size:12px;color:var(--text2);white-space:nowrap}
+.mnb-notes{font-size:12px;color:var(--text2);line-height:1.5;max-width:340px}
+.mnb-actions{display:flex;gap:5px;white-space:nowrap}
+.mnb-empty{padding:40px 20px;text-align:center;color:var(--text3)}
+.mnb-empty-icon{font-size:28px;margin-bottom:10px;opacity:.5}
+
+/* import preview modal for mnb */
+.mnb-preview-modal{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:600;display:flex;align-items:center;justify-content:center}
+.mnb-preview-modal.hidden{display:none}
+.mnb-preview-box{background:var(--surface);border-radius:var(--rl);padding:24px;max-width:780px;width:95%;box-shadow:0 8px 40px rgba(0,0,0,.2);max-height:90vh;display:flex;flex-direction:column}
+.mnb-preview-box h2{font-size:15px;font-weight:600;margin-bottom:4px}
+.mnb-preview-box p{font-size:12px;color:var(--text3);margin-bottom:12px}
+.mnb-preview-scroll{overflow-y:auto;flex:1;border:1px solid var(--border);border-radius:var(--r);margin-bottom:14px}
+table.mnb-prev-t{width:100%;border-collapse:collapse;font-size:12px}
+table.mnb-prev-t th{font-family:var(--mono);font-size:10px;color:var(--text3);text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);text-transform:uppercase;background:#FAFAF8;position:sticky;top:0}
+table.mnb-prev-t td{padding:6px 8px;border-bottom:1px solid var(--border)}
+table.mnb-prev-t input{width:100%;padding:4px 6px;border:1px solid var(--border);border-radius:4px;font-size:12px;font-family:var(--sans);outline:none;background:var(--surface)}
+table.mnb-prev-t input:focus{border-color:var(--accent2)}
+.mnb-preview-actions{display:flex;justify-content:flex-end;gap:8px}
+.mnb-badge{background:var(--green-bg);color:var(--green);font-family:var(--mono);font-size:11px;font-weight:600;padding:2px 10px;border-radius:99px;display:inline-block;margin-bottom:8px}
+
 @media(max-width:900px){.shell{grid-template-columns:1fr}.sidebar{height:auto;position:static;flex-direction:row;flex-wrap:wrap;padding:12px}.sidebar-logo{border:none;padding:4px 8px}.nav{display:flex;flex-direction:row;flex-wrap:wrap;padding:0}.ni{padding:7px 12px;border-left:none;border-bottom:2px solid transparent;font-size:13px}.ni.active{border-bottom-color:#74C69D;border-left-color:transparent}.sidebar-footer{display:none}.page-stats{grid-template-columns:repeat(3,1fr)}.pg{grid-template-columns:1fr}.cl-sections{grid-template-columns:1fr}.main{padding:16px}}
 </style>
-<script src="./Producer Daily Tracker - FINAL_files/xlsx.full.min.js.download"></script></head>
+</head>
 <body>
-<div class="loading" id="loading" style="display: none;"><div class="spinner"></div><h2>Loading tracker...</h2></div>
+<div class="loading" id="loading" style="display:none;"><div class="spinner"></div><h2>Loading tracker...</h2></div>
 <div class="undo-toast" id="undo-toast"><span id="undo-msg">Deleted</span><button class="undo-btn" onclick="window._undoDelete()">Undo</button></div>
 
-<!-- IMPORT MODAL -->
+<!-- IMPORT MODAL (Excel) -->
 <div class="modal-overlay hidden" id="import-modal">
   <div class="modal">
     <h2>Import from Excel</h2>
     <p>Upload your Excel file. Columns detected: <strong>Producer, Account, Eff Date, Notes</strong>.<br>
     Rows are routed automatically by color:<br>
     🟡 Yellow future date → New Business &nbsp;|&nbsp; 🟢 Green → Bound &nbsp;|&nbsp; 🟡 Yellow past date → Bound (with task) &nbsp;|&nbsp; 🩷 Pink → Dead</p>
-    <div class="upload-zone" onclick="document.getElementById(&#39;excel-input&#39;).click()">
+    <div class="upload-zone" onclick="document.getElementById('excel-input').click()">
       <div class="upload-icon">📊</div>
       <p>Click to select your Excel file</p>
       <p id="upload-filename" style="margin-top:6px;color:var(--accent)"></p>
@@ -205,24 +246,62 @@ table.mkt-t tr:last-child td{border-bottom:none}
     <input type="file" id="excel-input" accept=".xlsx,.xls,.csv" style="display:none" onchange="window._handleExcelFile(this)">
     <div class="import-summary" id="import-summary"></div>
     <div class="modal-actions">
-      <button class="btn btn-s" onclick="document.getElementById(&#39;import-modal&#39;).classList.add(&#39;hidden&#39;)">Cancel</button>
+      <button class="btn btn-s" onclick="document.getElementById('import-modal').classList.add('hidden')">Cancel</button>
       <button class="btn btn-p btn-s" id="import-confirm-btn" onclick="window._confirmImport()" style="display:none">Import rows</button>
+    </div>
+  </div>
+</div>
+
+<!-- MENACHEM IMPORT PREVIEW MODAL -->
+<div class="mnb-preview-modal hidden" id="mnb-preview-modal">
+  <div class="mnb-preview-box">
+    <h2>📄 Parsed from Word doc — review before importing</h2>
+    <p>Edit any fields below, then click Import All to save to Firebase.</p>
+    <span class="mnb-badge" id="mnb-preview-count">0 entries found</span>
+    <div class="mnb-preview-scroll">
+      <table class="mnb-prev-t">
+        <thead><tr><th>CSR</th><th>Client Name</th><th>Eff. Date</th><th>Notes</th></tr></thead>
+        <tbody id="mnb-preview-body"></tbody>
+      </table>
+    </div>
+    <div class="mnb-preview-actions">
+      <button class="btn btn-s" onclick="document.getElementById('mnb-preview-modal').classList.add('hidden')">Cancel</button>
+      <button class="btn btn-p btn-s" onclick="window._mnbConfirmImport()">⬆ Import All</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADD/EDIT MODAL for MNB -->
+<div class="modal-overlay hidden" id="mnb-modal">
+  <div class="modal">
+    <h2 id="mnb-modal-title">Add Entry</h2>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:16px">
+      <div class="fg"><label>CSR</label><input type="text" id="mnb-f-csr" placeholder="e.g. Menachem, Hannah, Israel"/></div>
+      <div class="fg"><label>Client Name</label><input type="text" id="mnb-f-client" placeholder="Account / client name"/></div>
+      <div class="fg"><label>Effective Date</label><input type="text" id="mnb-f-date" placeholder="e.g. 5/16, 7/1/26, 10/1"/></div>
+      <div class="fg"><label>Notes</label><textarea id="mnb-f-notes" style="min-height:80px" placeholder="Details, follow-up actions, status…"></textarea></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-s" onclick="document.getElementById('mnb-modal').classList.add('hidden')">Cancel</button>
+      <button class="btn btn-p btn-s" onclick="window._mnbSaveEntry()">Save</button>
     </div>
   </div>
 </div>
 
 <div class="shell">
 <aside class="sidebar">
-  <div class="sidebar-logo"><h1>Producer<br>Daily Tracker</h1><div class="date" id="sidebar-date">Mon, Apr 27</div></div>
+  <div class="sidebar-logo"><h1>Producer<br>Daily Tracker</h1><div class="date" id="sidebar-date"></div></div>
   <nav class="nav">
-    <div class="ni active" onclick="switchTab(&#39;renewals&#39;,this)"><span class="ico">↻</span>Renewals<span class="nb" id="nb-r">0</span></div>
-    <div class="ni" onclick="switchTab(&#39;newbiz&#39;,this)"><span class="ico">★</span>New Business<span class="nb" id="nb-n">10</span></div>
+    <div class="ni active" onclick="switchTab('renewals',this)"><span class="ico">↻</span>Renewals<span class="nb" id="nb-r">0</span></div>
+    <div class="ni" onclick="switchTab('newbiz',this)"><span class="ico">★</span>New Business<span class="nb" id="nb-n">0</span></div>
     <div class="nav-divider"></div>
-    <div class="ni" onclick="switchTab(&#39;bound&#39;,this)"><span class="ico">✓</span>Bound Policies<span class="nb" id="nb-b">0</span></div>
-    <div class="ni" onclick="switchTab(&#39;dead&#39;,this)"><span class="ico">✕</span>Dead Accounts<span class="nb" id="nb-d">0</span></div>
+    <div class="ni" onclick="switchTab('bound',this)"><span class="ico">✓</span>Bound Policies<span class="nb" id="nb-b">0</span></div>
+    <div class="ni" onclick="switchTab('dead',this)"><span class="ico">✕</span>Dead Accounts<span class="nb" id="nb-d">0</span></div>
     <div class="nav-divider"></div>
-    <div class="ni" onclick="switchTab(&#39;pipeline&#39;,this)"><span class="ico">◈</span>Pipeline<span class="nb" id="nb-p">0</span></div>
-    <div class="ni" onclick="switchTab(&#39;daily&#39;,this)"><span class="ico">☰</span>Daily checklist</div>
+    <div class="ni" onclick="switchTab('pipeline',this)"><span class="ico">◈</span>Pipeline<span class="nb" id="nb-p">0</span></div>
+    <div class="ni" onclick="switchTab('daily',this)"><span class="ico">☰</span>Daily checklist</div>
+    <div class="nav-divider"></div>
+    <div class="ni" onclick="switchTab('menachem',this)"><span class="ico">📋</span>Menachem New Buiz<span class="nb" id="nb-mnb">0</span></div>
   </nav>
   <div class="sidebar-footer"><div class="sync-indicator"><span class="sync-dot" id="sync-dot"></span><span id="sync-label">Live sync on</span></div></div>
 </aside>
@@ -237,24 +316,14 @@ table.mkt-t tr:last-child td{border-bottom:none}
     <div class="sec-header">
       <span class="sec-title">Policy renewals &amp; expirations</span>
       <div class="sec-actions">
-        <button class="btn btn-import" onclick="window._openImport(&#39;renewals&#39;)">⬆ Import Excel</button>
-        <button class="btn btn-s" onclick="toggleForm(&#39;rf&#39;)">+ Add</button>
+        <button class="btn btn-import" onclick="window._openImport('renewals')">⬆ Import Excel</button>
+        <button class="btn btn-s" onclick="toggleForm('rf')">+ Add</button>
       </div>
     </div>
-    <div class="table-toolbar"><button class="producer-toggle" id="ptog-renewals" onclick="window._toggleProducer(&#39;renewals&#39;)">Hide Producer column</button></div>
+    <div class="table-toolbar"><button class="producer-toggle" id="ptog-renewals" onclick="window._toggleProducer('renewals')">Hide Producer column</button></div>
     <div class="card"><div class="tw"><table class="mt"><thead id="thead-renewals"><tr>
-      <th><span class="th-inner"><span>Producer</span>
-    <span class="th-filter " onclick="window._toggleDropdown(event,&#39;renewals-producer&#39;)" id="thf-renewals-producer">
-      <span class="fa">▽</span>
-      <div class="col-dropdown " id="dd-renewals-producer"><div style="padding:8px 16px;font-family:var(--mono);font-size:11px;color:var(--text3)">No values yet</div></div>
-    </span></span></th>
-      <th>Client</th><th><span class="th-inner"><span>CSR</span>
-    <span class="th-filter " onclick="window._toggleDropdown(event,&#39;renewals-csr&#39;)" id="thf-renewals-csr">
-      <span class="fa">▽</span>
-      <div class="col-dropdown " id="dd-renewals-csr"><div style="padding:8px 16px;font-family:var(--mono);font-size:11px;color:var(--text3)">No values yet</div></div>
-    </span></span></th>
-      <th>Effective date</th>
-      <th>Days</th><th>Notes</th><th>Action needed</th><th></th></tr></thead><tbody id="renewals-body"><tr><td colspan="6" style="color:var(--text3);font-size:14px;padding:18px 0;text-align:center">No entries yet — click + Add or Import Excel</td></tr></tbody></table></div>
+      <th>Producer</th><th>Client</th><th>CSR</th><th>Effective date</th><th>Days</th><th>Notes</th><th>Action needed</th><th></th></tr></thead>
+      <tbody id="renewals-body"><tr><td colspan="6" style="color:var(--text3);font-size:14px;padding:18px 0;text-align:center">No entries yet — click + Add or Import Excel</td></tr></tbody></table></div>
       <div class="add-form" id="rf">
         <div class="fr">
           <div class="fg"><label>Producer</label><input type="text" id="r-producer" placeholder="Producer"></div>
@@ -264,7 +333,7 @@ table.mkt-t tr:last-child td{border-bottom:none}
           <div class="fg" style="flex:3"><label>Notes</label><textarea id="r-notes" placeholder="Any notes..."></textarea></div>
           <div class="fg" style="flex:2"><label>Action needed</label><input type="text" id="r-action" placeholder="e.g. Send renewal packet"></div>
         </div>
-        <div class="form-actions"><button class="btn btn-p btn-s" onclick="addRecord(&#39;renewals&#39;,&#39;r&#39;)">Add</button><button class="btn btn-s" onclick="toggleForm(&#39;rf&#39;)">Cancel</button></div>
+        <div class="form-actions"><button class="btn btn-p btn-s" onclick="addRecord('renewals','r')">Add</button><button class="btn btn-s" onclick="toggleForm('rf')">Cancel</button></div>
       </div>
     </div>
   </div>
@@ -272,308 +341,20 @@ table.mkt-t tr:last-child td{border-bottom:none}
   <!-- NEW BUSINESS -->
   <div class="section" id="sec-newbiz">
     <div class="page-stats" id="ps-newbiz">
-    <div class="pstat ps-red"><div class="pstat-label">Effective ≤ 7 days</div><div class="pstat-value">1</div><div class="pstat-sub">Urgent</div></div>
-    <div class="pstat ps-amber"><div class="pstat-label">Effective ≤ 14 days</div><div class="pstat-value">2</div><div class="pstat-sub">Coming up</div></div>
-    <div class="pstat ps-green"><div class="pstat-label">Effective 15+ days</div><div class="pstat-value">8</div><div class="pstat-sub">On the horizon</div></div></div>
+    <div class="pstat ps-red"><div class="pstat-label">Effective ≤ 7 days</div><div class="pstat-value">0</div><div class="pstat-sub">Urgent</div></div>
+    <div class="pstat ps-amber"><div class="pstat-label">Effective ≤ 14 days</div><div class="pstat-value">0</div><div class="pstat-sub">Coming up</div></div>
+    <div class="pstat ps-green"><div class="pstat-label">Effective 15+ days</div><div class="pstat-value">0</div><div class="pstat-sub">On the horizon</div></div></div>
     <div class="sec-header">
       <span class="sec-title">New business</span>
       <div class="sec-actions">
-        <button class="btn btn-import" onclick="window._openImport(&#39;newbiz&#39;)">⬆ Import Excel</button>
-        <button class="btn btn-s" onclick="toggleForm(&#39;nf&#39;)">+ Add</button>
+        <button class="btn btn-import" onclick="window._openImport('newbiz')">⬆ Import Excel</button>
+        <button class="btn btn-s" onclick="toggleForm('nf')">+ Add</button>
       </div>
     </div>
-    <div class="table-toolbar"><button class="producer-toggle" id="ptog-newbiz" onclick="window._toggleProducer(&#39;newbiz&#39;)">Hide Producer column</button></div>
+    <div class="table-toolbar"><button class="producer-toggle" id="ptog-newbiz" onclick="window._toggleProducer('newbiz')">Hide Producer column</button></div>
     <div class="card"><div class="tw"><table class="mt"><thead id="thead-newbiz"><tr>
-      <th><span class="th-inner"><span>Producer</span>
-    <span class="th-filter " onclick="window._toggleDropdown(event,&#39;newbiz-producer&#39;)" id="thf-newbiz-producer">
-      <span class="fa">▽</span>
-      <div class="col-dropdown " id="dd-newbiz-producer"><div class="col-dropdown-item " onclick="window._toggleFilterVal(&#39;newbiz&#39;,&#39;producer&#39;,&#39;Alan&#39;)"><span class="check"></span>Alan</div><div class="col-dropdown-item " onclick="window._toggleFilterVal(&#39;newbiz&#39;,&#39;producer&#39;,&#39;Israel&#39;)"><span class="check"></span>Israel</div><div class="col-dropdown-item " onclick="window._toggleFilterVal(&#39;newbiz&#39;,&#39;producer&#39;,&#39;Joel Nojovitz&#39;)"><span class="check"></span>Joel Nojovitz</div><div class="col-dropdown-item " onclick="window._toggleFilterVal(&#39;newbiz&#39;,&#39;producer&#39;,&#39;Menachem&#39;)"><span class="check"></span>Menachem</div></div>
-    </span></span></th>
-      <th>Client</th><th><span class="th-inner"><span>CSR</span>
-    <span class="th-filter " onclick="window._toggleDropdown(event,&#39;newbiz-csr&#39;)" id="thf-newbiz-csr">
-      <span class="fa">▽</span>
-      <div class="col-dropdown " id="dd-newbiz-csr"><div class="col-dropdown-item " onclick="window._toggleFilterVal(&#39;newbiz&#39;,&#39;csr&#39;,&#39;Hannah&#39;)"><span class="check"></span>Hannah</div></div>
-    </span></span></th>
-      <th>Effective date</th><th>Type</th>
-      <th>Days</th><th>Notes</th><th>Action needed</th><th></th></tr></thead><tbody id="newbiz-body"><tr class="mr" id="mr-newbiz-mod2ctojaw096e2txm">
-    <td style="font-size:13px;color:var(--text2)">Alan</td><td style="font-weight:600">170-11 Hillside Ave</td><td style="font-size:13px;color:var(--text2)">Hannah</td><td style="font-family:var(--mono);font-size:13px">2026-04-30</td><td><span class="badge bb">New Purchase</span></td><td><span class="badge br">3d</span></td><td><div class="notes-cell">Cancelled 10/19/25 with roundhill for $2,249</div><button class="en-btn" onclick="window._startNote(&#39;newbiz&#39;,&#39;mod2ctojaw096e2txm&#39;,&#39;nt-newbiz-mod2ctojaw096e2txm&#39;)">edit</button></td><td style="font-size:13px;color:var(--text2)">Follow up</td>
-    <td><div class="action-col">
-      <button class="edit-btn" onclick="window._startEdit(&#39;newbiz&#39;,&#39;mod2ctojaw096e2txm&#39;)">Edit</button>
-      <button class="mkt-btn  " id="mb-newbiz-mod2ctojaw096e2txm" onclick="window._togMkt(&#39;newbiz&#39;,&#39;mod2ctojaw096e2txm&#39;)"><span class="arr">►</span> Marketing</button>
-      <span class="del-sep"></span>
-      <button class="del-btn" onclick="window._del(&#39;newbiz&#39;,&#39;mod2ctojaw096e2txm&#39;)">×</button>
-    </div></td>
-  </tr>
-  
-  <tr class="mkt-row " id="mktrow-newbiz-mod2ctojaw096e2txm"><td colspan="7">
-    <div class="mkt-inner">
-      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — 170-11 Hillside Ave</span><button class="mkt-save" onclick="window._saveMkt(&#39;newbiz&#39;,&#39;mod2ctojaw096e2txm&#39;)">Save</button></div>
-      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
-      <tbody id="mb-newbiz-mod2ctojaw096e2txm"></tbody></table>
-      <button class="mkt-add" onclick="window._addMktRow(&#39;newbiz&#39;,&#39;mod2ctojaw096e2txm&#39;)">+ Add carrier / wholesaler</button>
-    </div>
-  </td></tr><tr class="mr" id="mr-newbiz-moc2c6lhv2c2trmycl">
-    <td style="font-size:13px;color:var(--text2)">Menachem</td><td style="font-weight:600">I R Leasing, LLC (Gary)</td><td style="font-size:13px;color:var(--text2)">Hannah</td><td style="font-family:var(--mono);font-size:13px">2026-05-09</td><td><span class="badge bp">Policy Dating</span></td><td><span class="badge ba">12d</span></td><td><div class="notes-cell">Currently with State Farm for $12,545</div><button class="en-btn" onclick="window._startNote(&#39;newbiz&#39;,&#39;moc2c6lhv2c2trmycl&#39;,&#39;nt-newbiz-moc2c6lhv2c2trmycl&#39;)">edit</button></td><td style="font-size:13px;color:var(--text2)">Need Renewal Premium</td>
-    <td><div class="action-col">
-      <button class="edit-btn" onclick="window._startEdit(&#39;newbiz&#39;,&#39;moc2c6lhv2c2trmycl&#39;)">Edit</button>
-      <button class="mkt-btn  " id="mb-newbiz-moc2c6lhv2c2trmycl" onclick="window._togMkt(&#39;newbiz&#39;,&#39;moc2c6lhv2c2trmycl&#39;)"><span class="arr">►</span> Marketing</button>
-      <span class="del-sep"></span>
-      <button class="del-btn" onclick="window._del(&#39;newbiz&#39;,&#39;moc2c6lhv2c2trmycl&#39;)">×</button>
-    </div></td>
-  </tr>
-  
-  <tr class="mkt-row " id="mktrow-newbiz-moc2c6lhv2c2trmycl"><td colspan="7">
-    <div class="mkt-inner">
-      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — I R Leasing, LLC (Gary)</span><button class="mkt-save" onclick="window._saveMkt(&#39;newbiz&#39;,&#39;moc2c6lhv2c2trmycl&#39;)">Save</button></div>
-      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
-      <tbody id="mb-newbiz-moc2c6lhv2c2trmycl"></tbody></table>
-      <button class="mkt-add" onclick="window._addMktRow(&#39;newbiz&#39;,&#39;moc2c6lhv2c2trmycl&#39;)">+ Add carrier / wholesaler</button>
-    </div>
-  </td></tr><tr class="mr" id="mr-newbiz-mod2e0qpsecazo5e6t">
-    <td style="font-size:13px;color:var(--text2)">Israel</td><td style="font-weight:600">90 Moore LLC</td><td style="font-size:13px;color:var(--text2)">Hannah</td><td style="font-family:var(--mono);font-size:13px">2026-05-15</td><td><span class="badge bb">New Purchase</span></td><td><span class="badge bg">18d</span></td><td><div class="notes-cell"></div><button class="en-btn" onclick="window._startNote(&#39;newbiz&#39;,&#39;mod2e0qpsecazo5e6t&#39;,&#39;nt-newbiz-mod2e0qpsecazo5e6t&#39;)">edit</button></td><td style="font-size:13px;color:var(--text2)">Follow up</td>
-    <td><div class="action-col">
-      <button class="edit-btn" onclick="window._startEdit(&#39;newbiz&#39;,&#39;mod2e0qpsecazo5e6t&#39;)">Edit</button>
-      <button class="mkt-btn  " id="mb-newbiz-mod2e0qpsecazo5e6t" onclick="window._togMkt(&#39;newbiz&#39;,&#39;mod2e0qpsecazo5e6t&#39;)"><span class="arr">►</span> Marketing</button>
-      <span class="del-sep"></span>
-      <button class="del-btn" onclick="window._del(&#39;newbiz&#39;,&#39;mod2e0qpsecazo5e6t&#39;)">×</button>
-    </div></td>
-  </tr>
-  
-  <tr class="mkt-row " id="mktrow-newbiz-mod2e0qpsecazo5e6t"><td colspan="7">
-    <div class="mkt-inner">
-      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — 90 Moore LLC</span><button class="mkt-save" onclick="window._saveMkt(&#39;newbiz&#39;,&#39;mod2e0qpsecazo5e6t&#39;)">Save</button></div>
-      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
-      <tbody id="mb-newbiz-mod2e0qpsecazo5e6t"></tbody></table>
-      <button class="mkt-add" onclick="window._addMktRow(&#39;newbiz&#39;,&#39;mod2e0qpsecazo5e6t&#39;)">+ Add carrier / wholesaler</button>
-    </div>
-  </td></tr><tr class="mr" id="mr-newbiz-mod2fm1x2ym3593908d">
-    <td style="font-size:13px;color:var(--text2)">Joel Nojovitz</td><td style="font-weight:600">1301 Industrial Hwy LLC</td><td style="font-size:13px;color:var(--text2)">Hannah</td><td style="font-family:var(--mono);font-size:13px">2026-05-15</td><td><span class="badge bb">New Purchase</span></td><td><span class="badge bg">18d</span></td><td><div class="notes-cell">Need to get a vacant option and correct entity name</div><button class="en-btn" onclick="window._startNote(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,&#39;nt-newbiz-mod2fm1x2ym3593908d&#39;)">edit</button><div class="mkt-dots"><span class="mkt-dot-sm" style="background:#C1121F" title="Hartford — Declined"></span><span class="mkt-dot-sm" style="background:#C1121F" title="CNA — Declined"></span><span class="mkt-dot-sm" style="background:#2D6A4F" title="Hanover — Quoted"></span><span class="mkt-dot-sm" style="background:#E9A800" title="AmTrust — Pending"></span><span class="mkt-dot-sm" style="background:#E9A800" title="Stuart — Pending"></span><span class="mkt-dot-sm" style="background:#C1121F" title="USLI — Declined"></span><span class="mkt-dot-sm" style="background:#2D6A4F" title="Ryan Kelly RT — Quoted"></span><span class="mkt-dot-sm" style="background:#E9A800" title="Gordon — Pending"></span></div></td><td style="font-size:13px;color:var(--text2)">Follow up</td>
-    <td><div class="action-col">
-      <button class="edit-btn" onclick="window._startEdit(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;)">Edit</button>
-      <button class="mkt-btn  has-entries" id="mb-newbiz-mod2fm1x2ym3593908d" onclick="window._togMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;)"><span class="arr">►</span> Marketing (8)</button>
-      <span class="del-sep"></span>
-      <button class="del-btn" onclick="window._del(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;)">×</button>
-    </div></td>
-  </tr>
-  
-  <tr class="mkt-row " id="mktrow-newbiz-mod2fm1x2ym3593908d"><td colspan="7">
-    <div class="mkt-inner">
-      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — 1301 Industrial Hwy LLC</span><button class="mkt-save" onclick="window._saveMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;)">Save</button></div>
-      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
-      <tbody id="mb-newbiz-mod2fm1x2ym3593908d"><tr class="mkt-c-red"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#C1121F;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Hartford" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,0,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,0,&#39;feedback&#39;,this.value)">Not writing this class code</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mod2fm1x2ym3593908d&#39;,0,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow">Pending</option><option value="red" selected="">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,0)">×</button></td></tr><tr class="mkt-c-red"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#C1121F;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="CNA" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,1,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,1,&#39;feedback&#39;,this.value)">Not writing this class code</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mod2fm1x2ym3593908d&#39;,1,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow">Pending</option><option value="red" selected="">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,1)">×</button></td></tr><tr class="mkt-c-green"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#2D6A4F;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Hanover" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,2,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,2,&#39;feedback&#39;,this.value)">BOP quote for $14k</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mod2fm1x2ym3593908d&#39;,2,this.value)"><option value="gray">No status</option><option value="green" selected="">Quoted</option><option value="yellow">Pending</option><option value="red">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,2)">×</button></td></tr><tr class="mkt-c-yellow"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#E9A800;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="AmTrust" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,3,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,3,&#39;feedback&#39;,this.value)">Sent for review</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mod2fm1x2ym3593908d&#39;,3,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow" selected="">Pending</option><option value="red">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,3)">×</button></td></tr><tr class="mkt-c-yellow"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#E9A800;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Stuart" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,4,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,4,&#39;feedback&#39;,this.value)">For Cincinnati and Travelers</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mod2fm1x2ym3593908d&#39;,4,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow" selected="">Pending</option><option value="red">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,4)">×</button></td></tr><tr class="mkt-c-red"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#C1121F;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="USLI" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,5,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,5,&#39;feedback&#39;,this.value)">Declined tenants operation involves manufacturing</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mod2fm1x2ym3593908d&#39;,5,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow">Pending</option><option value="red" selected="">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,5)">×</button></td></tr><tr class="mkt-c-green"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#2D6A4F;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Ryan Kelly RT" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,6,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,6,&#39;feedback&#39;,this.value)">Maxum package $31,963.80</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mod2fm1x2ym3593908d&#39;,6,this.value)"><option value="gray">No status</option><option value="green" selected="">Quoted</option><option value="yellow">Pending</option><option value="red">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,6)">×</button></td></tr><tr class="mkt-c-yellow"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#E9A800;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Gordon" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,7,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,7,&#39;feedback&#39;,this.value)">Indicated $39k with Scottsdale</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mod2fm1x2ym3593908d&#39;,7,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow" selected="">Pending</option><option value="red">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;,7)">×</button></td></tr></tbody></table>
-      <button class="mkt-add" onclick="window._addMktRow(&#39;newbiz&#39;,&#39;mod2fm1x2ym3593908d&#39;)">+ Add carrier / wholesaler</button>
-    </div>
-  </td></tr><tr class="mr" id="mr-newbiz-mod2p6v8p4hlqn3okfn">
-    <td style="font-size:13px;color:var(--text2)">Alan</td><td style="font-weight:600">Zevulon Capital LLC</td><td style="font-size:13px;color:var(--text2)">Hannah</td><td style="font-family:var(--mono);font-size:13px">2026-05-15</td><td><span class="badge bb">New Purchase</span></td><td><span class="badge bg">18d</span></td><td><div class="notes-cell"></div><button class="en-btn" onclick="window._startNote(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;,&#39;nt-newbiz-mod2p6v8p4hlqn3okfn&#39;)">edit</button><div class="mkt-dots"><span class="mkt-dot-sm" style="background:#2D6A4F" title="RT Beau - Property — Quoted"></span><span class="mkt-dot-sm" style="background:#E9A800" title="RT Justin - Liability — Pending"></span><span class="mkt-dot-sm" style="background:#E9A800" title="Avalon — Pending"></span><span class="mkt-dot-sm" style="background:#E9A800" title="Stuart — Pending"></span></div></td><td style="font-size:13px;color:var(--text2)">Follow up</td>
-    <td><div class="action-col">
-      <button class="edit-btn" onclick="window._startEdit(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;)">Edit</button>
-      <button class="mkt-btn  has-entries" id="mb-newbiz-mod2p6v8p4hlqn3okfn" onclick="window._togMkt(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;)"><span class="arr">►</span> Marketing (4)</button>
-      <span class="del-sep"></span>
-      <button class="del-btn" onclick="window._del(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;)">×</button>
-    </div></td>
-  </tr>
-  
-  <tr class="mkt-row " id="mktrow-newbiz-mod2p6v8p4hlqn3okfn"><td colspan="7">
-    <div class="mkt-inner">
-      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Zevulon Capital LLC</span><button class="mkt-save" onclick="window._saveMkt(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;)">Save</button></div>
-      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
-      <tbody id="mb-newbiz-mod2p6v8p4hlqn3okfn"><tr class="mkt-c-green"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#2D6A4F;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="RT Beau - Property" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;,0,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;,0,&#39;feedback&#39;,this.value)">.0025 rate, $25k Deductible, needs LR</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mod2p6v8p4hlqn3okfn&#39;,0,this.value)"><option value="gray">No status</option><option value="green" selected="">Quoted</option><option value="yellow">Pending</option><option value="red">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;,0)">×</button></td></tr><tr class="mkt-c-yellow"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#E9A800;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="RT Justin - Liability" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;,1,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;,1,&#39;feedback&#39;,this.value)">Needs LR</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mod2p6v8p4hlqn3okfn&#39;,1,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow" selected="">Pending</option><option value="red">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;,1)">×</button></td></tr><tr class="mkt-c-yellow"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#E9A800;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Avalon" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;,2,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;,2,&#39;feedback&#39;,this.value)">Pending</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mod2p6v8p4hlqn3okfn&#39;,2,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow" selected="">Pending</option><option value="red">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;,2)">×</button></td></tr><tr class="mkt-c-yellow"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#E9A800;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Stuart" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;,3,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;,3,&#39;feedback&#39;,this.value)">Pending</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mod2p6v8p4hlqn3okfn&#39;,3,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow" selected="">Pending</option><option value="red">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;,3)">×</button></td></tr></tbody></table>
-      <button class="mkt-add" onclick="window._addMktRow(&#39;newbiz&#39;,&#39;mod2p6v8p4hlqn3okfn&#39;)">+ Add carrier / wholesaler</button>
-    </div>
-  </td></tr><tr class="mr" id="mr-newbiz-mobym7cjjcpjgsfdk8h">
-    <td style="font-size:13px;color:var(--text2)">Menachem</td><td style="font-weight:600">Invictus Glassworks TN LLC</td><td style="font-size:13px;color:var(--text2)">Hannah</td><td style="font-family:var(--mono);font-size:13px">2026-05-16</td><td><span class="badge bp">Policy Dating</span></td><td><span class="badge bg">19d</span></td><td><div class="notes-cell">Waiting on Westminster</div><button class="en-btn" onclick="window._startNote(&#39;newbiz&#39;,&#39;mobym7cjjcpjgsfdk8h&#39;,&#39;nt-newbiz-mobym7cjjcpjgsfdk8h&#39;)">edit</button></td><td style="font-size:13px;color:var(--text2)">Follow up</td>
-    <td><div class="action-col">
-      <button class="edit-btn" onclick="window._startEdit(&#39;newbiz&#39;,&#39;mobym7cjjcpjgsfdk8h&#39;)">Edit</button>
-      <button class="mkt-btn  " id="mb-newbiz-mobym7cjjcpjgsfdk8h" onclick="window._togMkt(&#39;newbiz&#39;,&#39;mobym7cjjcpjgsfdk8h&#39;)"><span class="arr">►</span> Marketing</button>
-      <span class="del-sep"></span>
-      <button class="del-btn" onclick="window._del(&#39;newbiz&#39;,&#39;mobym7cjjcpjgsfdk8h&#39;)">×</button>
-    </div></td>
-  </tr>
-  
-  <tr class="mkt-row " id="mktrow-newbiz-mobym7cjjcpjgsfdk8h"><td colspan="7">
-    <div class="mkt-inner">
-      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Invictus Glassworks TN LLC</span><button class="mkt-save" onclick="window._saveMkt(&#39;newbiz&#39;,&#39;mobym7cjjcpjgsfdk8h&#39;)">Save</button></div>
-      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
-      <tbody id="mb-newbiz-mobym7cjjcpjgsfdk8h"></tbody></table>
-      <button class="mkt-add" onclick="window._addMktRow(&#39;newbiz&#39;,&#39;mobym7cjjcpjgsfdk8h&#39;)">+ Add carrier / wholesaler</button>
-    </div>
-  </td></tr><tr class="mr" id="mr-newbiz-mobyo18zf6trtqtrwzq">
-    <td style="font-size:13px;color:var(--text2)">Menachem</td><td style="font-weight:600">PSQ Holding, LLC (Michelle)</td><td style="font-size:13px;color:var(--text2)">Hannah</td><td style="font-family:var(--mono);font-size:13px">2026-05-17</td><td><span class="badge bp">Policy Dating</span></td><td><span class="badge bg">20d</span></td><td><div class="notes-cell">NEED LOSS RUNS</div><button class="en-btn" onclick="window._startNote(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,&#39;nt-newbiz-mobyo18zf6trtqtrwzq&#39;)">edit</button><div class="mkt-dots"><span class="mkt-dot-sm" style="background:#C1121F" title="Stuart — Declined"></span><span class="mkt-dot-sm" style="background:#E9A800" title="Grieco — Pending"></span><span class="mkt-dot-sm" style="background:#E9A800" title="Fowler — Pending"></span><span class="mkt-dot-sm" style="background:#C1121F" title="Hartford — Declined"></span><span class="mkt-dot-sm" style="background:#E9A800" title="AmTrust — Pending"></span><span class="mkt-dot-sm" style="background:#C1121F" title="PHLY — Declined"></span><span class="mkt-dot-sm" style="background:#E9A800" title="CRC — Pending"></span><span class="mkt-dot-sm" style="background:#E9A800" title="Amalgamated — Pending"></span></div></td><td style="font-size:13px;color:var(--text2)">Follow up</td>
-    <td><div class="action-col">
-      <button class="edit-btn" onclick="window._startEdit(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;)">Edit</button>
-      <button class="mkt-btn  has-entries" id="mb-newbiz-mobyo18zf6trtqtrwzq" onclick="window._togMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;)"><span class="arr">►</span> Marketing (8)</button>
-      <span class="del-sep"></span>
-      <button class="del-btn" onclick="window._del(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;)">×</button>
-    </div></td>
-  </tr>
-  
-  <tr class="mkt-row " id="mktrow-newbiz-mobyo18zf6trtqtrwzq"><td colspan="7">
-    <div class="mkt-inner">
-      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — PSQ Holding, LLC (Michelle)</span><button class="mkt-save" onclick="window._saveMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;)">Save</button></div>
-      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
-      <tbody id="mb-newbiz-mobyo18zf6trtqtrwzq"><tr class="mkt-c-red"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#C1121F;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Stuart" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,0,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,0,&#39;feedback&#39;,this.value)">Westminster said no over $20m not competitive, Cant do Travelers either</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mobyo18zf6trtqtrwzq&#39;,0,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow">Pending</option><option value="red" selected="">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,0)">×</button></td></tr><tr class="mkt-c-yellow"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#E9A800;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Grieco" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,1,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,1,&#39;feedback&#39;,this.value)">Prop indication from Velocity for $235k, needs loss runs</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mobyo18zf6trtqtrwzq&#39;,1,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow" selected="">Pending</option><option value="red">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,1)">×</button></td></tr><tr class="mkt-c-yellow"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#E9A800;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Fowler" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,2,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,2,&#39;feedback&#39;,this.value)"></textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mobyo18zf6trtqtrwzq&#39;,2,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow" selected="">Pending</option><option value="red">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,2)">×</button></td></tr><tr class="mkt-c-red"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#C1121F;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Hartford" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,3,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,3,&#39;feedback&#39;,this.value)">Declined, not doing hab</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mobyo18zf6trtqtrwzq&#39;,3,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow">Pending</option><option value="red" selected="">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,3)">×</button></td></tr><tr class="mkt-c-yellow"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#E9A800;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="AmTrust" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,4,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,4,&#39;feedback&#39;,this.value)">Didnt hear back yet.</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mobyo18zf6trtqtrwzq&#39;,4,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow" selected="">Pending</option><option value="red">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,4)">×</button></td></tr><tr class="mkt-c-red"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#C1121F;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="PHLY" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,5,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,5,&#39;feedback&#39;,this.value)">Declined, frame exceeds TIV limit</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mobyo18zf6trtqtrwzq&#39;,5,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow">Pending</option><option value="red" selected="">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,5)">×</button></td></tr><tr class="mkt-c-yellow"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#E9A800;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="CRC" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,6,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,6,&#39;feedback&#39;,this.value)"></textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mobyo18zf6trtqtrwzq&#39;,6,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow" selected="">Pending</option><option value="red">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,6)">×</button></td></tr><tr class="mkt-c-yellow"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#E9A800;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Amalgamated" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,7,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,7,&#39;feedback&#39;,this.value)">Asked for Loss Runs</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mobyo18zf6trtqtrwzq&#39;,7,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow" selected="">Pending</option><option value="red">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;,7)">×</button></td></tr></tbody></table>
-      <button class="mkt-add" onclick="window._addMktRow(&#39;newbiz&#39;,&#39;mobyo18zf6trtqtrwzq&#39;)">+ Add carrier / wholesaler</button>
-    </div>
-  </td></tr><tr class="mr" id="mr-newbiz-mod2ms108eg6y9ctls">
-    <td style="font-size:13px;color:var(--text2)">Alan</td><td style="font-weight:600">Avon Healthcare</td><td style="font-size:13px;color:var(--text2)">Hannah</td><td style="font-family:var(--mono);font-size:13px">2026-06-01</td><td><span class="badge bb">New Purchase</span></td><td><span class="badge bg">35d</span></td><td><div class="notes-cell">Follow up closer to June</div><button class="en-btn" onclick="window._startNote(&#39;newbiz&#39;,&#39;mod2ms108eg6y9ctls&#39;,&#39;nt-newbiz-mod2ms108eg6y9ctls&#39;)">edit</button></td><td style="font-size:13px;color:var(--text2)">Follow up</td>
-    <td><div class="action-col">
-      <button class="edit-btn" onclick="window._startEdit(&#39;newbiz&#39;,&#39;mod2ms108eg6y9ctls&#39;)">Edit</button>
-      <button class="mkt-btn  " id="mb-newbiz-mod2ms108eg6y9ctls" onclick="window._togMkt(&#39;newbiz&#39;,&#39;mod2ms108eg6y9ctls&#39;)"><span class="arr">►</span> Marketing</button>
-      <span class="del-sep"></span>
-      <button class="del-btn" onclick="window._del(&#39;newbiz&#39;,&#39;mod2ms108eg6y9ctls&#39;)">×</button>
-    </div></td>
-  </tr>
-  
-  <tr class="mkt-row " id="mktrow-newbiz-mod2ms108eg6y9ctls"><td colspan="7">
-    <div class="mkt-inner">
-      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — Avon Healthcare</span><button class="mkt-save" onclick="window._saveMkt(&#39;newbiz&#39;,&#39;mod2ms108eg6y9ctls&#39;)">Save</button></div>
-      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
-      <tbody id="mb-newbiz-mod2ms108eg6y9ctls"></tbody></table>
-      <button class="mkt-add" onclick="window._addMktRow(&#39;newbiz&#39;,&#39;mod2ms108eg6y9ctls&#39;)">+ Add carrier / wholesaler</button>
-    </div>
-  </td></tr><tr class="mr" id="mr-newbiz-mobyqw7p9iqlqam9q0w">
-    <td style="font-size:13px;color:var(--text2)">Menachem</td><td style="font-weight:600">MINBRO NORTHCHASE, LLC (Yitz)</td><td style="font-size:13px;color:var(--text2)">Hannah</td><td style="font-family:var(--mono);font-size:13px">2026-06-08</td><td><span class="badge bp">Policy Dating</span></td><td><span class="badge bg">42d</span></td><td><div class="notes-cell">Currently with Travelers, Premium $25,362</div><button class="en-btn" onclick="window._startNote(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;,&#39;nt-newbiz-mobyqw7p9iqlqam9q0w&#39;)">edit</button><div class="mkt-dots"><span class="mkt-dot-sm" style="background:#E9A800" title="Stuart — Pending"></span><span class="mkt-dot-sm" style="background:#C1121F" title="Hanover — Declined"></span><span class="mkt-dot-sm" style="background:#C1121F" title="Hartford — Declined"></span><span class="mkt-dot-sm" style="background:#C1121F" title="AmTrust — Declined"></span></div></td><td style="font-size:13px;color:var(--text2)">Follow up</td>
-    <td><div class="action-col">
-      <button class="edit-btn" onclick="window._startEdit(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;)">Edit</button>
-      <button class="mkt-btn  has-entries" id="mb-newbiz-mobyqw7p9iqlqam9q0w" onclick="window._togMkt(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;)"><span class="arr">►</span> Marketing (4)</button>
-      <span class="del-sep"></span>
-      <button class="del-btn" onclick="window._del(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;)">×</button>
-    </div></td>
-  </tr>
-  
-  <tr class="mkt-row " id="mktrow-newbiz-mobyqw7p9iqlqam9q0w"><td colspan="7">
-    <div class="mkt-inner">
-      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — MINBRO NORTHCHASE, LLC (Yitz)</span><button class="mkt-save" onclick="window._saveMkt(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;)">Save</button></div>
-      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
-      <tbody id="mb-newbiz-mobyqw7p9iqlqam9q0w"><tr class="mkt-c-yellow"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#E9A800;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Stuart" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;,0,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;,0,&#39;feedback&#39;,this.value)">Nothing yet</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mobyqw7p9iqlqam9q0w&#39;,0,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow" selected="">Pending</option><option value="red">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;,0)">×</button></td></tr><tr class="mkt-c-red"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#C1121F;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Hanover" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;,1,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;,1,&#39;feedback&#39;,this.value)">Cannot do vacancy and doesnt like tenants</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mobyqw7p9iqlqam9q0w&#39;,1,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow">Pending</option><option value="red" selected="">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;,1)">×</button></td></tr><tr class="mkt-c-red"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#C1121F;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Hartford" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;,2,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;,2,&#39;feedback&#39;,this.value)">Cant do vacancy, either way indicated $70k+</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mobyqw7p9iqlqam9q0w&#39;,2,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow">Pending</option><option value="red" selected="">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;,2)">×</button></td></tr><tr class="mkt-c-red"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#C1121F;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="AmTrust" onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;,3,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;,3,&#39;feedback&#39;,this.value)">Declined and blocked.</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;mobyqw7p9iqlqam9q0w&#39;,3,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow">Pending</option><option value="red" selected="">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;,3)">×</button></td></tr></tbody></table>
-      <button class="mkt-add" onclick="window._addMktRow(&#39;newbiz&#39;,&#39;mobyqw7p9iqlqam9q0w&#39;)">+ Add carrier / wholesaler</button>
-    </div>
-  </td></tr><tr class="mr" id="mr-newbiz-moc2m435h6wxtl9638">
-    <td style="font-size:13px;color:var(--text2)">Menachem</td><td style="font-weight:600">RSW Umbrella</td><td style="font-size:13px;color:var(--text2)">Hannah</td><td style="font-family:var(--mono);font-size:13px">2026-06-08</td><td><span class="badge bp">Policy Dating</span></td><td><span class="badge bg">42d</span></td><td><div class="notes-cell">Currently with Umbrella Pro for $12k</div><button class="en-btn" onclick="window._startNote(&#39;newbiz&#39;,&#39;moc2m435h6wxtl9638&#39;,&#39;nt-newbiz-moc2m435h6wxtl9638&#39;)">edit</button><div class="mkt-dots"><span class="mkt-dot-sm" style="background:#C1121F" title="Cure — Declined"></span><span class="mkt-dot-sm" style="background:#C1121F" title="Capitol — Declined"></span><span class="mkt-dot-sm" style="background:#E9A800" title="Stuart (Westminster) — Pending"></span></div></td><td style="font-size:13px;color:var(--text2)">Follow up</td>
-    <td><div class="action-col">
-      <button class="edit-btn" onclick="window._startEdit(&#39;newbiz&#39;,&#39;moc2m435h6wxtl9638&#39;)">Edit</button>
-      <button class="mkt-btn  has-entries" id="mb-newbiz-moc2m435h6wxtl9638" onclick="window._togMkt(&#39;newbiz&#39;,&#39;moc2m435h6wxtl9638&#39;)"><span class="arr">►</span> Marketing (3)</button>
-      <span class="del-sep"></span>
-      <button class="del-btn" onclick="window._del(&#39;newbiz&#39;,&#39;moc2m435h6wxtl9638&#39;)">×</button>
-    </div></td>
-  </tr>
-  
-  <tr class="mkt-row " id="mktrow-newbiz-moc2m435h6wxtl9638"><td colspan="7">
-    <div class="mkt-inner">
-      <div class="mkt-hdr"><span class="mkt-lbl">Marketing — RSW Umbrella</span><button class="mkt-save" onclick="window._saveMkt(&#39;newbiz&#39;,&#39;moc2m435h6wxtl9638&#39;)">Save</button></div>
-      <table class="mkt-t"><thead><tr><th style="width:14px"></th><th style="width:28%">Carrier / wholesaler</th><th>Feedback</th><th style="width:115px">Status</th><th style="width:36px"></th></tr></thead>
-      <tbody id="mb-newbiz-moc2m435h6wxtl9638"><tr class="mkt-c-red"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#C1121F;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Cure" onchange="window._updMkt(&#39;newbiz&#39;,&#39;moc2m435h6wxtl9638&#39;,0,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;moc2m435h6wxtl9638&#39;,0,&#39;feedback&#39;,this.value)">doesnt write in PA</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;moc2m435h6wxtl9638&#39;,0,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow">Pending</option><option value="red" selected="">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;moc2m435h6wxtl9638&#39;,0)">×</button></td></tr><tr class="mkt-c-red"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#C1121F;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Capitol" onchange="window._updMkt(&#39;newbiz&#39;,&#39;moc2m435h6wxtl9638&#39;,1,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;moc2m435h6wxtl9638&#39;,1,&#39;feedback&#39;,this.value)">Indicated $25k+</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;moc2m435h6wxtl9638&#39;,1,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow">Pending</option><option value="red" selected="">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;moc2m435h6wxtl9638&#39;,1)">×</button></td></tr><tr class="mkt-c-yellow"><td style="width:14px"><span style="width:10px;height:10px;border-radius:50%;background:#E9A800;display:inline-block"></span></td>
-      <td style="width:28%"><input class="mci" placeholder="Carrier or wholesaler" value="Stuart (Westminster)" onchange="window._updMkt(&#39;newbiz&#39;,&#39;moc2m435h6wxtl9638&#39;,2,&#39;carrier&#39;,this.value)"></td>
-      <td><textarea class="mfi" placeholder="Feedback..." onchange="window._updMkt(&#39;newbiz&#39;,&#39;moc2m435h6wxtl9638&#39;,2,&#39;feedback&#39;,this.value)">Pending</textarea></td>
-      <td style="width:115px"><select class="mkt-color-select" onchange="window._updMktColor(&#39;moc2m435h6wxtl9638&#39;,2,this.value)"><option value="gray">No status</option><option value="green">Quoted</option><option value="yellow" selected="">Pending</option><option value="red">Declined</option></select></td>
-      <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow(&#39;newbiz&#39;,&#39;moc2m435h6wxtl9638&#39;,2)">×</button></td></tr></tbody></table>
-      <button class="mkt-add" onclick="window._addMktRow(&#39;newbiz&#39;,&#39;moc2m435h6wxtl9638&#39;)">+ Add carrier / wholesaler</button>
-    </div>
-  </td></tr></tbody></table></div>
+      <th>Producer</th><th>Client</th><th>CSR</th><th>Effective date</th><th>Type</th><th>Days</th><th>Notes</th><th>Action needed</th><th></th></tr></thead>
+      <tbody id="newbiz-body"><tr><td colspan="7" style="color:var(--text3);font-size:14px;padding:18px 0;text-align:center">No entries yet — click + Add or Import Excel</td></tr></tbody></table></div>
       <div class="add-form" id="nf">
         <div class="fr">
           <div class="fg"><label>Producer</label><input type="text" id="n-producer" placeholder="Producer"></div>
@@ -584,7 +365,7 @@ table.mkt-t tr:last-child td{border-bottom:none}
           <div class="fg" style="flex:3"><label>Notes</label><textarea id="n-notes" placeholder="Any notes..."></textarea></div>
           <div class="fg" style="flex:2"><label>Action needed</label><input type="text" id="n-action" placeholder="e.g. Bind coverage"></div>
         </div>
-        <div class="form-actions"><button class="btn btn-p btn-s" onclick="addRecord(&#39;newbiz&#39;,&#39;n&#39;)">Add</button><button class="btn btn-s" onclick="toggleForm(&#39;nf&#39;)">Cancel</button></div>
+        <div class="form-actions"><button class="btn btn-p btn-s" onclick="addRecord('newbiz','n')">Add</button><button class="btn btn-s" onclick="toggleForm('nf')">Cancel</button></div>
       </div>
     </div>
   </div>
@@ -594,24 +375,14 @@ table.mkt-t tr:last-child td{border-bottom:none}
     <div class="sec-header">
       <span class="sec-title">Bound policies</span>
       <div class="sec-actions">
-        <button class="btn btn-import" onclick="window._openImport(&#39;bound&#39;)">⬆ Import Excel</button>
-        <button class="btn btn-s" onclick="toggleForm(&#39;bf&#39;)">+ Add</button>
+        <button class="btn btn-import" onclick="window._openImport('bound')">⬆ Import Excel</button>
+        <button class="btn btn-s" onclick="toggleForm('bf')">+ Add</button>
       </div>
     </div>
-    <div class="table-toolbar"><button class="producer-toggle" id="ptog-bound" onclick="window._toggleProducer(&#39;bound&#39;)">Hide Producer column</button></div>
+    <div class="table-toolbar"><button class="producer-toggle" id="ptog-bound" onclick="window._toggleProducer('bound')">Hide Producer column</button></div>
     <div class="card"><div class="tw"><table class="mt"><thead id="thead-bound"><tr>
-      <th><span class="th-inner"><span>Producer</span>
-    <span class="th-filter " onclick="window._toggleDropdown(event,&#39;bound-producer&#39;)" id="thf-bound-producer">
-      <span class="fa">▽</span>
-      <div class="col-dropdown " id="dd-bound-producer"><div style="padding:8px 16px;font-family:var(--mono);font-size:11px;color:var(--text3)">No values yet</div></div>
-    </span></span></th>
-      <th>Client</th><th><span class="th-inner"><span>CSR</span>
-    <span class="th-filter " onclick="window._toggleDropdown(event,&#39;bound-csr&#39;)" id="thf-bound-csr">
-      <span class="fa">▽</span>
-      <div class="col-dropdown " id="dd-bound-csr"><div style="padding:8px 16px;font-family:var(--mono);font-size:11px;color:var(--text3)">No values yet</div></div>
-    </span></span></th>
-      <th>Effective date</th><th>Carrier bound</th><th>Premium</th>
-      <th>Open task</th><th>Notes / marketing history</th><th></th></tr></thead><tbody id="bound-body"><tr><td colspan="8" style="color:var(--text3);font-size:14px;padding:18px 0;text-align:center">No entries yet — click + Add or Import Excel</td></tr></tbody></table></div>
+      <th>Producer</th><th>Client</th><th>CSR</th><th>Effective date</th><th>Carrier bound</th><th>Premium</th><th>Open task</th><th>Notes / marketing history</th><th></th></tr></thead>
+      <tbody id="bound-body"><tr><td colspan="8" style="color:var(--text3);font-size:14px;padding:18px 0;text-align:center">No entries yet — click + Add or Import Excel</td></tr></tbody></table></div>
       <div class="add-form" id="bf">
         <div class="fr">
           <div class="fg"><label>Producer</label><input type="text" id="b-producer" placeholder="Producer"></div>
@@ -623,7 +394,7 @@ table.mkt-t tr:last-child td{border-bottom:none}
           <div class="fg" style="flex:2"><label>Open task</label><input type="text" id="b-task" placeholder="Any open task..."></div>
           <div class="fg" style="flex:3"><label>Notes</label><textarea id="b-notes" placeholder="Marketing history, notes..."></textarea></div>
         </div>
-        <div class="form-actions"><button class="btn btn-p btn-s" onclick="addBound()">Add</button><button class="btn btn-s" onclick="toggleForm(&#39;bf&#39;)">Cancel</button></div>
+        <div class="form-actions"><button class="btn btn-p btn-s" onclick="addBound()">Add</button><button class="btn btn-s" onclick="toggleForm('bf')">Cancel</button></div>
       </div>
     </div>
   </div>
@@ -633,22 +404,13 @@ table.mkt-t tr:last-child td{border-bottom:none}
     <div class="sec-header">
       <span class="sec-title">Dead accounts</span>
       <div class="sec-actions">
-        <button class="btn btn-import" onclick="window._openImport(&#39;dead&#39;)">⬆ Import Excel</button>
-        <button class="btn btn-s" onclick="toggleForm(&#39;df&#39;)">+ Add</button>
+        <button class="btn btn-import" onclick="window._openImport('dead')">⬆ Import Excel</button>
+        <button class="btn btn-s" onclick="toggleForm('df')">+ Add</button>
       </div>
     </div>
     <div class="card"><div class="tw"><table class="mt"><thead id="thead-dead"><tr>
-      <th><span class="th-inner"><span>Producer</span>
-    <span class="th-filter " onclick="window._toggleDropdown(event,&#39;dead-producer&#39;)" id="thf-dead-producer">
-      <span class="fa">▽</span>
-      <div class="col-dropdown " id="dd-dead-producer"><div style="padding:8px 16px;font-family:var(--mono);font-size:11px;color:var(--text3)">No values yet</div></div>
-    </span></span></th>
-      <th>Client</th><th><span class="th-inner"><span>CSR</span>
-    <span class="th-filter " onclick="window._toggleDropdown(event,&#39;dead-csr&#39;)" id="thf-dead-csr">
-      <span class="fa">▽</span>
-      <div class="col-dropdown " id="dd-dead-csr"><div style="padding:8px 16px;font-family:var(--mono);font-size:11px;color:var(--text3)">No values yet</div></div>
-    </span></span></th>
-      <th>Date</th><th>Notes / reason</th><th></th></tr></thead><tbody id="dead-body"><tr><td colspan="5" style="color:var(--text3);font-size:14px;padding:18px 0;text-align:center">No entries yet — click + Add or Import Excel</td></tr></tbody></table></div>
+      <th>Producer</th><th>Client</th><th>CSR</th><th>Date</th><th>Notes / reason</th><th></th></tr></thead>
+      <tbody id="dead-body"><tr><td colspan="5" style="color:var(--text3);font-size:14px;padding:18px 0;text-align:center">No entries yet — click + Add or Import Excel</td></tr></tbody></table></div>
       <div class="add-form" id="df">
         <div class="fr">
           <div class="fg"><label>Producer</label><input type="text" id="d-producer" placeholder="Producer"></div>
@@ -657,16 +419,16 @@ table.mkt-t tr:last-child td{border-bottom:none}
           <div class="fg"><label>Date</label><input type="date" id="d-exp"></div>
           <div class="fg" style="flex:3"><label>Notes / reason</label><textarea id="d-notes" placeholder="Why dead, any notes..."></textarea></div>
         </div>
-        <div class="form-actions"><button class="btn btn-p btn-s" onclick="addDead()">Add</button><button class="btn btn-s" onclick="toggleForm(&#39;df&#39;)">Cancel</button></div>
+        <div class="form-actions"><button class="btn btn-p btn-s" onclick="addDead()">Add</button><button class="btn btn-s" onclick="toggleForm('df')">Cancel</button></div>
       </div>
     </div>
   </div>
 
   <!-- PIPELINE -->
   <div class="section" id="sec-pipeline">
-    <div class="sec-header"><span class="sec-title">Prospect pipeline</span><button class="btn btn-s" onclick="toggleForm(&#39;pf&#39;)">+ Add prospect</button></div>
+    <div class="sec-header"><span class="sec-title">Prospect pipeline</span><button class="btn btn-s" onclick="toggleForm('pf')">+ Add prospect</button></div>
     <div class="card">
-      <div class="pg" id="pipeline-cols"><div class="lane"><div class="lane-hdr">Lead <span class="lane-cnt">0</span></div><div style="font-size:13px;color:var(--text3);padding:8px 0">No prospects</div></div><div class="lane"><div class="lane-hdr">Contacted <span class="lane-cnt">0</span></div><div style="font-size:13px;color:var(--text3);padding:8px 0">No prospects</div></div><div class="lane"><div class="lane-hdr">Quoting <span class="lane-cnt">0</span></div><div style="font-size:13px;color:var(--text3);padding:8px 0">No prospects</div></div></div>
+      <div class="pg" id="pipeline-cols"></div>
       <div class="add-form" id="pf">
         <div class="fr">
           <div class="fg" style="flex:2"><label>Name / company</label><input type="text" id="p-name" placeholder="Prospect name"></div>
@@ -674,7 +436,7 @@ table.mkt-t tr:last-child td{border-bottom:none}
           <div class="fg"><label>Line of business</label><input type="text" id="p-line" placeholder="e.g. BOP, Auto"></div>
           <div class="fg"><label>Est. premium</label><input type="text" id="p-premium" placeholder="e.g. $4,200"></div>
         </div>
-        <div class="form-actions"><button class="btn btn-p btn-s" onclick="addProspect()">Add</button><button class="btn btn-s" onclick="toggleForm(&#39;pf&#39;)">Cancel</button></div>
+        <div class="form-actions"><button class="btn btn-p btn-s" onclick="addProspect()">Add</button><button class="btn btn-s" onclick="toggleForm('pf')">Cancel</button></div>
       </div>
     </div>
   </div>
@@ -682,12 +444,74 @@ table.mkt-t tr:last-child td{border-bottom:none}
   <!-- DAILY -->
   <div class="section" id="sec-daily">
     <div class="sec-header"><span class="sec-title">Daily checklist</span></div>
-    <div class="cl-sections" id="cl-sections"><div style="color:var(--text3);font-size:14px;padding:24px 0;grid-column:1/-1;text-align:center">No sections yet — click "+ Add section" below to get started</div></div>
+    <div class="cl-sections" id="cl-sections"></div>
     <button class="cl-add-section" onclick="window._addSection()">+ Add section</button>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       MENACHEM NEW BUIZ
+  ══════════════════════════════════════════ -->
+  <div class="section" id="sec-menachem">
+    <div class="sec-header">
+      <span class="sec-title">Menachem New Buiz</span>
+      <div class="sec-actions">
+        <span id="mnb-count-badge" style="font-family:var(--mono);font-size:12px;color:var(--text3)">0 records</span>
+        <button class="btn btn-p btn-s" onclick="window._mnbOpenAdd()">+ Add Entry</button>
+      </div>
+    </div>
+
+    <!-- Upload zone -->
+    <div class="mnb-upload" id="mnb-upload-zone">
+      <input type="file" id="mnb-doc-input" accept=".docx" onchange="window._mnbHandleFile(this)"/>
+      <div class="mnb-upload-icon">📄</div>
+      <div class="mnb-upload-title">Drop a Word doc here, or click to browse</div>
+      <div class="mnb-upload-sub">Supports .docx — parses into CSR · Client · Effective Date · Notes</div>
+    </div>
+
+    <!-- Search + filter toolbar -->
+    <div class="mnb-toolbar">
+      <div class="mnb-left">
+        <input type="text" class="mnb-search" id="mnb-search" placeholder="🔍  Search client, CSR, notes…" oninput="window._mnbRender()"/>
+        <select class="mnb-select" id="mnb-csr-filter" onchange="window._mnbRender()">
+          <option value="">All CSRs</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tw">
+        <table class="mnb-t">
+          <thead>
+            <tr>
+              <th onclick="window._mnbSort('csr')">CSR <span id="mnb-sort-csr">↕</span></th>
+              <th onclick="window._mnbSort('clientName')">Client Name <span id="mnb-sort-clientName">↕</span></th>
+              <th onclick="window._mnbSort('effectiveDate')">Eff. Date <span id="mnb-sort-effectiveDate">↕</span></th>
+              <th>Notes</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="mnb-body"></tbody>
+        </table>
+      </div>
+      <div id="mnb-empty" class="mnb-empty" style="display:none">
+        <div class="mnb-empty-icon">📂</div>
+        <div style="font-weight:600;margin-bottom:4px">No records yet</div>
+        <div style="font-size:12px">Upload a Word doc above or click + Add Entry</div>
+      </div>
+    </div>
   </div>
 
 </main>
 </div>
+
+<script>
+// Load mammoth for docx parsing
+(function(){
+  var s=document.createElement('script');
+  s.src='https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js';
+  document.head.appendChild(s);
+})();
+</script>
 
 <script type="module">
 // Dynamically load XLSX library
@@ -701,7 +525,8 @@ await new Promise((resolve, reject) => {
 });
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
-import { getFirestore, collection, doc, onSnapshot, setDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+import { getFirestore, collection, doc, onSnapshot, setDoc, deleteDoc, addDoc, getDocs, updateDoc, serverTimestamp, query, orderBy }
+  from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAeHWuMhz6ct9iG4HKmR_2xtn7_IpuNAr4",
@@ -715,6 +540,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// ═══════════════════════════════════════════
+//  EXISTING TRACKER STATE & LOGIC
+// ═══════════════════════════════════════════
 let S = { renewals:[], newbiz:[], bound:[], dead:[], prospects:[] };
 let openMkt={}, editNote={}, editRow={};
 let undoStack=null, undoTimer=null;
@@ -732,7 +560,6 @@ const MKT_COLORS={
   red:{label:'Declined',dot:'#C1121F',cls:'mkt-c-red'}
 };
 
-// KNOWN CARRIERS/WHOLESALERS for smart parsing
 const CARRIER_KEYWORDS = ['amtrust','travelers','hartford','cna','j&j','jj','frank','hanover','pbc','sir','morstan','usli','cassidy','amwins','westchester','granada','roundhill','distinguished','greico','gny','stuart','westminster','cincinatti','andrew grieco','frank wkfc','wkfc','evanston','old republic'];
 
 function setSyncing(v){const d=document.getElementById('sync-dot'),l=document.getElementById('sync-label');if(d)d.classList.toggle('syncing',v);if(l)l.textContent=v?'Saving...':'Live sync on';}
@@ -762,7 +589,6 @@ function showUndo(msg,fn){
 }
 window._undoDelete=function(){if(undoStack){undoStack();undoStack=null;}document.getElementById('undo-toast').classList.remove('show');if(undoTimer)clearTimeout(undoTimer);};
 
-// FIRESTORE
 function startListeners(){
   ['renewals','newbiz','bound','dead'].forEach(t=>{
     onSnapshot(collection(db,t),snap=>{S[t]=snap.docs.map(d=>({id:d.id,...d.data()}));renderType(t);});
@@ -775,68 +601,47 @@ async function saveRecord(type,record){setSyncing(true);await setDoc(doc(db,type
 async function deleteRecord(type,id){setSyncing(true);await deleteDoc(doc(db,type,id));setSyncing(false);}
 async function saveChecklist(){setSyncing(true);await setDoc(doc(db,'app','checklist'),{sections:CL});setSyncing(false);}
 
-// SMART NOTE PARSER
 function parseNotes(rawNotes){
   if(!rawNotes)return{notes:'',marketing:[]};
   const lines=rawNotes.split('\n').map(l=>l.trim()).filter(Boolean);
-  const marketingLines=[];
-  const noteLines=[];
+  const marketingLines=[];const noteLines=[];
   lines.forEach(line=>{
     const lower=line.toLowerCase();
     const isCarrier=CARRIER_KEYWORDS.some(k=>lower.startsWith(k))||/^[a-z][a-z\s&]+\s*[-–:]/i.test(line);
     if(isCarrier){
-      // parse carrier name and feedback
       const match=line.match(/^([^-–:]+)[-–:]\s*(.*)$/);
       if(match){
-        const carrier=match[1].trim();
-        const feedback=match[2].trim();
-        // guess color
-        let color='gray';
-        const fl=feedback.toLowerCase();
+        const carrier=match[1].trim();const feedback=match[2].trim();
+        let color='gray';const fl=feedback.toLowerCase();
         if(fl.includes('declin')||fl.includes('blocked')||fl.includes('cant')||fl.includes("can't")||fl.includes('inelig')||fl.includes('no appetite'))color='red';
         else if(fl.includes('quot')||fl.includes('$')||fl.includes('indicat')||fl.includes('review'))color='green';
         else if(fl.includes('pending')||fl.includes('waiting')||fl.includes('sent')||fl.includes('for review'))color='yellow';
         marketingLines.push({id:uid(),carrier,feedback,color});
-      } else {
-        marketingLines.push({id:uid(),carrier:line,feedback:'',color:'gray'});
-      }
-    } else {
-      noteLines.push(line);
-    }
+      } else {marketingLines.push({id:uid(),carrier:line,feedback:'',color:'gray'});}
+    } else {noteLines.push(line);}
   });
   return{notes:noteLines.join('\n'),marketing:marketingLines};
 }
 
-// PARSE ACCOUNT FIELD (split client name from task notes)
 function parseAccount(raw){
   if(!raw)return{client:'',extraNote:''};
-  // if contains ' - ' after the company name, split there
   const dashMatch=raw.match(/^(.+?)\s*[-–]\s*(.+)$/);
   if(dashMatch){
-    const possibleClient=dashMatch[1].trim();
-    const possibleNote=dashMatch[2].trim();
-    // if the note part looks like a task (contains action words), split it
+    const possibleClient=dashMatch[1].trim();const possibleNote=dashMatch[2].trim();
     const actionWords=/need|send|follow|call|inspect|payment|invoice|bind|endorse|check/i;
-    if(actionWords.test(possibleNote)){
-      return{client:possibleClient,extraNote:possibleNote};
-    }
+    if(actionWords.test(possibleNote)){return{client:possibleClient,extraNote:possibleNote};}
   }
   return{client:raw.trim(),extraNote:''};
 }
 
-// EXCEL COLOR → section mapping
 function classifyRowColor(fillColor){
   if(!fillColor)return'white';
   const hex=String(fillColor).toUpperCase().replace('#','');
   if(!hex||hex.length<6)return'white';
-  // Exact matches from your Excel file
-  if(hex==='C2F1C8')return'green';   // Bound
-  if(hex==='FFCCCFF'||hex==='FFCCFF')return'pink'; // Dead
-  if(hex==='FFFF99')return'yellow';  // New Business or Bound with task
-  // Fallback fuzzy matching
-  const r=parseInt(hex.slice(0,2),16);
-  const g=parseInt(hex.slice(2,4),16);
-  const b=parseInt(hex.slice(4,6),16);
+  if(hex==='C2F1C8')return'green';
+  if(hex==='FFCCCFF'||hex==='FFCCFF')return'pink';
+  if(hex==='FFFF99')return'yellow';
+  const r=parseInt(hex.slice(0,2),16);const g=parseInt(hex.slice(2,4),16);const b=parseInt(hex.slice(4,6),16);
   if(isNaN(r)||isNaN(g)||isNaN(b))return'white';
   if(r>210&&g>210&&b<150)return'yellow';
   if(g>200&&r<210&&b<210&&g>r)return'green';
@@ -844,26 +649,17 @@ function classifyRowColor(fillColor){
   return'white';
 }
 
-// PARSE DATE from Excel
 function parseDate(val){
   if(!val)return'';
-  if(typeof val==='number'){
-    // Excel serial date
-    const d=new Date((val-25569)*86400000);
-    return d.toISOString().slice(0,10);
-  }
+  if(typeof val==='number'){const d=new Date((val-25569)*86400000);return d.toISOString().slice(0,10);}
   const s=String(val).trim();
-  // if it looks like ASAP, NOC, RECS etc return as-is for notes
   if(/^[a-z]/i.test(s)&&!/\d{4}/.test(s))return s;
-  const d=new Date(s);
-  if(!isNaN(d))return d.toISOString().slice(0,10);
+  const d=new Date(s);if(!isNaN(d))return d.toISOString().slice(0,10);
   return s;
 }
 
-// IMPORT EXCEL
 window._openImport=function(type){
-  importTargetType=type;
-  pendingImport=null;
+  importTargetType=type;pendingImport=null;
   document.getElementById('upload-filename').textContent='';
   document.getElementById('import-summary').style.display='none';
   document.getElementById('import-confirm-btn').style.display='none';
@@ -879,13 +675,8 @@ window._handleExcelFile=function(input){
     const wb=XLSX.read(data,{type:'array',cellStyles:true});
     const ws=wb.Sheets[wb.SheetNames[0]];
     const range=XLSX.utils.decode_range(ws['!ref']);
-    // get headers from row 0
     const headers={};
-    for(let c=range.s.c;c<=range.e.c;c++){
-      const cell=ws[XLSX.utils.encode_cell({r:range.s.r,c})];
-      if(cell)headers[c]=String(cell.v||'').toLowerCase().trim();
-    }
-    // find column indices
+    for(let c=range.s.c;c<=range.e.c;c++){const cell=ws[XLSX.utils.encode_cell({r:range.s.r,c})];if(cell)headers[c]=String(cell.v||'').toLowerCase().trim();}
     let colProducer=-1,colAccount=-1,colEff=-1,colNotes=-1;
     Object.entries(headers).forEach(([c,h])=>{
       const hc=h.toLowerCase().trim();
@@ -894,43 +685,23 @@ window._handleExcelFile=function(input){
       if(hc.includes('eff')||hc.includes('date')||hc.includes('eff date'))colEff=+c;
       if(hc.includes('note'))colNotes=+c;
     });
-    // fallback: if no account col found, use col 1 (B); if no eff col, use col 2 (C); if no notes col, use col 3 (D)
-    if(colAccount<0)colAccount=1;
-    if(colEff<0)colEff=2;
-    if(colNotes<0)colNotes=3;
-    if(colProducer<0)colProducer=0;
-    const rows=[];
-    const today=new Date();today.setHours(0,0,0,0);
-    console.log('Headers found:', headers);
-    console.log('colProducer:',colProducer,'colAccount:',colAccount,'colEff:',colEff,'colNotes:',colNotes);
-    console.log('Total rows to scan:', range.e.r - range.s.r);
+    if(colAccount<0)colAccount=1;if(colEff<0)colEff=2;if(colNotes<0)colNotes=3;if(colProducer<0)colProducer=0;
+    const rows=[];const today=new Date();today.setHours(0,0,0,0);
     for(let r=range.s.r+1;r<=range.e.r;r++){
       const getCell=(c)=>c>=0?ws[XLSX.utils.encode_cell({r,c})]:null;
       const getVal=(c)=>{const cell=getCell(c);return cell?cell.v:'';};
       const producer=String(getVal(colProducer)||'').trim();
       const accountRaw=String(getVal(colAccount)||'').trim();
-      const effRaw=getVal(colEff);
-      const notesRaw=String(getVal(colNotes)||'').trim();
+      const effRaw=getVal(colEff);const notesRaw=String(getVal(colNotes)||'').trim();
       if(!accountRaw&&!producer&&!String(getVal(colEff)||'').trim())continue;
-      // get fill color from first cell of row - read fgColor.rgb
       let fillColor='';
       for(let c=range.s.c;c<=range.e.c;c++){
-        const cellAddr=XLSX.utils.encode_cell({r,c});
-        const cell=ws[cellAddr];
-        if(cell&&cell.s){
-          const fg=cell.s.fgColor;
-          if(fg&&fg.rgb&&fg.rgb!=='00000000'&&fg.rgb!=='FFFFFFFF'){
-            fillColor=fg.rgb;break;
-          }
-        }
+        const cellAddr=XLSX.utils.encode_cell({r,c});const cell=ws[cellAddr];
+        if(cell&&cell.s){const fg=cell.s.fgColor;if(fg&&fg.rgb&&fg.rgb!=='00000000'&&fg.rgb!=='FFFFFFFF'){fillColor=fg.rgb;break;}}
       }
       const colorClass=classifyRowColor(fillColor);
-      console.log(`Row ${r}: account="${accountRaw}" fill="${fillColor}" color=${colorClass}`);
-      const effParsed=parseDate(effRaw);
-      const effIsDate=isValidDate(effParsed);
-      const effDate=effIsDate?new Date(effParsed):null;
-      const isPast=effDate&&effDate<today;
-      // determine section
+      const effParsed=parseDate(effRaw);const effIsDate=isValidDate(effParsed);
+      const effDate=effIsDate?new Date(effParsed):null;const isPast=effDate&&effDate<today;
       let section='renewals';
       if(colorClass==='pink')section='dead';
       else if(colorClass==='green')section='bound';
@@ -939,13 +710,11 @@ window._handleExcelFile=function(input){
       const{client,extraNote}=parseAccount(accountRaw);
       const{notes:parsedNotes,marketing}=parseNotes(notesRaw);
       const combinedNotes=[extraNote,parsedNotes].filter(Boolean).join('\n');
-      const effForDB=effIsDate?effParsed:(effParsed?'':'' );
-      const effNonDate=effIsDate?'':(effParsed||'');
+      const effForDB=effIsDate?effParsed:'';const effNonDate=effIsDate?'':(effParsed||'');
       const finalNotes=effNonDate?[effNonDate,combinedNotes].filter(Boolean).join(' | '):combinedNotes;
       rows.push({section,producer,client,csr:'Hannah',exp:effForDB,notes:finalNotes,marketing,action:'Follow up',bizType:'New Purchase',carrier:'',premium:'',task:isPast&&colorClass==='yellow'?'Open task from import':'',id:uid()});
     }
     pendingImport=rows;
-    // show summary
     const counts={renewals:0,newbiz:0,bound:0,dead:0};
     rows.forEach(r=>{if(counts[r.section]!==undefined)counts[r.section]++;});
     const sumEl=document.getElementById('import-summary');
@@ -970,11 +739,9 @@ window._confirmImport=async function(){
       await setDoc(doc(db,'dead',data.id),{id:data.id,producer:data.producer,client:data.client,csr:data.csr,exp:data.exp,notes:data.notes});
     }
   }
-  setSyncing(false);
-  pendingImport=null;
+  setSyncing(false);pendingImport=null;
 };
 
-// PAGE STATS
 function renderPageStats(type,cid){
   const arr=S[type];
   const s7=arr.filter(r=>du(r.exp)>=0&&du(r.exp)<=7).length;
@@ -986,7 +753,6 @@ function renderPageStats(type,cid){
     <div class="pstat ps-green"><div class="pstat-label">Effective 15+ days</div><div class="pstat-value">${s30}</div><div class="pstat-sub">On the horizon</div></div>`;
 }
 
-// PRODUCER TOGGLE
 window._toggleProducer=function(type){
   showProducer[type]=!showProducer[type];
   const btn=document.getElementById('ptog-'+type);
@@ -994,18 +760,12 @@ window._toggleProducer=function(type){
   renderType(type);
 };
 
-// FILTER DROPDOWN
 function filterDropdownHtml(type,field,label){
-  const key=type+'-'+field;
-  const selected=activeFilters[type]?activeFilters[type][field]||[]:[];
-  const isFiltered=selected.length>0;
-  const vals=[...new Set(S[type].map(r=>r[field]||'').filter(Boolean))].sort();
+  const key=type+'-'+field;const selected=activeFilters[type]?activeFilters[type][field]||[]:[];
+  const isFiltered=selected.length>0;const vals=[...new Set(S[type].map(r=>r[field]||'').filter(Boolean))].sort();
   const isOpen=openDropdown===key;
   const clearBtn=isFiltered?`<div class="col-dropdown-item" onclick="window._clearFilter('${type}','${field}')"><span class="check" style="color:var(--red)">✕</span>Clear filter</div><hr style="margin:4px 0;border:none;border-top:1px solid var(--border)"/>` :'';
-  const items=vals.map(v=>{
-    const checked=selected.includes(v);
-    return`<div class="col-dropdown-item ${checked?'selected':''}" onclick="window._toggleFilterVal('${type}','${field}','${esc(v)}')"><span class="check">${checked?'✓':''}</span>${esc(v)}</div>`;
-  }).join('');
+  const items=vals.map(v=>{const checked=selected.includes(v);return`<div class="col-dropdown-item ${checked?'selected':''}" onclick="window._toggleFilterVal('${type}','${field}','${esc(v)}')"><span class="check">${checked?'✓':''}</span>${esc(v)}</div>`;}).join('');
   const emptyMsg=vals.length===0?'<div style="padding:8px 16px;font-family:var(--mono);font-size:11px;color:var(--text3)">No values yet</div>':'';
   return`<span class="th-inner"><span>${label}${isFiltered?` <span style="font-family:var(--mono);font-size:9px;background:var(--accent);color:#fff;padding:1px 5px;border-radius:99px;margin-left:3px">${selected.length}</span>`:''}</span>
     <span class="th-filter ${isFiltered?'active-filter':''}" onclick="window._toggleDropdown(event,'${key}')" id="thf-${key}">
@@ -1022,45 +782,24 @@ window._toggleFilterVal=function(type,field,val){
   openDropdown=type+'-'+field;const dd=document.getElementById('dd-'+type+'-'+field);if(dd)dd.classList.add('open');
 };
 window._clearFilter=function(type,field){if(activeFilters[type])activeFilters[type][field]=[];closeAllDropdowns();renderType(type);};
-
 function getFiltered(type){
   if(!activeFilters[type])return S[type];
   const pf=activeFilters[type].producer||[],cf=activeFilters[type].csr||[];
-  return S[type].filter(r=>{
-    const pm=pf.length===0||pf.includes(r.producer||'');
-    const cm=cf.length===0||cf.includes(r.csr||'');
-    return pm&&cm;
-  });
+  return S[type].filter(r=>{const pm=pf.length===0||pf.includes(r.producer||'');const cm=cf.length===0||cf.includes(r.csr||'');return pm&&cm;});
 }
 
-// THEAD
 function renderThead(type){
-  const isNB=type==='newbiz';
-  const isBound=type==='bound';
-  const isDead=type==='dead';
-  const showP=showProducer[type]!==false;
-  const el=document.getElementById('thead-'+type);if(!el)return;
+  const isNB=type==='newbiz';const isBound=type==='bound';const isDead=type==='dead';
+  const showP=showProducer[type]!==false;const el=document.getElementById('thead-'+type);if(!el)return;
   if(isBound){
-    el.innerHTML=`<tr>
-      ${showP?`<th>${filterDropdownHtml(type,'producer','Producer')}</th>`:''}
-      <th>Client</th><th>${filterDropdownHtml(type,'csr','CSR')}</th>
-      <th>Effective date</th><th>Carrier bound</th><th>Premium</th>
-      <th>Open task</th><th>Notes / marketing history</th><th></th></tr>`;
+    el.innerHTML=`<tr>${showP?`<th>${filterDropdownHtml(type,'producer','Producer')}</th>`:''}<th>Client</th><th>${filterDropdownHtml(type,'csr','CSR')}</th><th>Effective date</th><th>Carrier bound</th><th>Premium</th><th>Open task</th><th>Notes / marketing history</th><th></th></tr>`;
   } else if(isDead){
-    el.innerHTML=`<tr>
-      ${showP?`<th>${filterDropdownHtml(type,'producer','Producer')}</th>`:''}
-      <th>Client</th><th>${filterDropdownHtml(type,'csr','CSR')}</th>
-      <th>Date</th><th>Notes / reason</th><th></th></tr>`;
+    el.innerHTML=`<tr>${showP?`<th>${filterDropdownHtml(type,'producer','Producer')}</th>`:''}<th>Client</th><th>${filterDropdownHtml(type,'csr','CSR')}</th><th>Date</th><th>Notes / reason</th><th></th></tr>`;
   } else {
-    el.innerHTML=`<tr>
-      ${showP?`<th>${filterDropdownHtml(type,'producer','Producer')}</th>`:''}
-      <th>Client</th><th>${filterDropdownHtml(type,'csr','CSR')}</th>
-      <th>Effective date</th>${isNB?'<th>Type</th>':''}
-      <th>Days</th><th>Notes</th><th>Action needed</th><th></th></tr>`;
+    el.innerHTML=`<tr>${showP?`<th>${filterDropdownHtml(type,'producer','Producer')}</th>`:''}<th>Client</th><th>${filterDropdownHtml(type,'csr','CSR')}</th><th>Effective date</th>${isNB?'<th>Type</th>':''}<th>Days</th><th>Notes</th><th>Action needed</th><th></th></tr>`;
   }
 }
 
-// NOTE CELL
 function noteCell(type,row){
   const k='nt-'+type+'-'+row.id;
   if(editNote[k])return'<textarea class="ne" id="'+k+'" onblur="window._saveNote(\''+type+'\',\''+row.id+'\',\''+k+'\')">'+esc(row.notes||'')+'</textarea>';
@@ -1069,12 +808,10 @@ function noteCell(type,row){
 window._startNote=function(type,id,k){editNote[k]=true;renderType(type);setTimeout(()=>{const el=document.getElementById(k);if(el){el.focus();el.setSelectionRange(el.value.length,el.value.length);}},40);};
 window._saveNote=async function(type,id,k){const el=document.getElementById(k);if(!el)return;const r=S[type].find(x=>x.id===id);if(r){r.notes=el.value;await saveRecord(type,r);}delete editNote[k];renderType(type);};
 
-// EDIT ROW
 function editRowHtml(type,row){
   const isNB=type==='newbiz';const isBound=type==='bound';const isDead=type==='dead';
   const showP=showProducer[type]!==false;
-  let colspan=5+(showP?1:0);
-  if(isNB)colspan++;if(isBound)colspan+=2;if(isDead)colspan--;
+  let colspan=5+(showP?1:0);if(isNB)colspan++;if(isBound)colspan+=2;if(isDead)colspan--;
   let extraFields='';
   if(isNB)extraFields+=`<div class="ef"><label>Type</label><select id="ef-type-${row.id}"><option${row.bizType==='New Purchase'?' selected':''}>New Purchase</option><option${row.bizType==='Policy Dating'?' selected':''}>Policy Dating</option></select></div>`;
   if(isBound)extraFields+=`<div class="ef"><label>Carrier bound</label><input type="text" id="ef-carrier-${row.id}" value="${esc(row.carrier||'')}"/></div><div class="ef"><label>Premium</label><input type="text" id="ef-premium-${row.id}" value="${esc(row.premium||'')}"/></div><div class="ef" style="flex:2"><label>Open task</label><input type="text" id="ef-task-${row.id}" value="${esc(row.task||'')}"/></div>`;
@@ -1111,7 +848,6 @@ window._saveEdit=async function(type,id){
   delete editRow[type+'-'+id];await saveRecord(type,r);
 };
 
-// MARKETING
 function mktColorSelect(rowId,mIdx,current){
   const c=current||'gray';
   return`<select class="mkt-color-select" onchange="window._updMktColor('${rowId}',${mIdx},this.value)">${Object.entries(MKT_COLORS).map(([k,v])=>`<option value="${k}"${c===k?' selected':''}>${v.label}</option>`).join('')}</select>`;
@@ -1136,8 +872,6 @@ function mktHtml(type,row){
       <td style="width:36px;text-align:center"><button class="mdel" onclick="window._delMktRow('${type}','${row.id}',${i})">&#215;</button></td></tr>`;
   }).join('');
   const isEditing=!!editRow[type+'-'+row.id];
-
-  // build row cells based on type
   let cells='';
   if(showP)cells+=`<td style="font-size:13px;color:var(--text2)">${esc(row.producer||'')}</td>`;
   cells+=`<td style="font-weight:600">${esc(row.client)}</td>`;
@@ -1240,10 +974,235 @@ window._delItem=async function(si,ii){if(!CL[si])return;CL[si].items.splice(ii,1
 window._updateItemText=function(si,ii,val){if(CL[si]&&CL[si].items[ii])CL[si].items[ii].text=val;};
 window._togItem=async function(si,ii,val){if(CL[si]&&CL[si].items[ii]){CL[si].items[ii].checked=val;await saveChecklist();}};
 
+// ═══════════════════════════════════════════
+//  MENACHEM NEW BUIZ
+// ═══════════════════════════════════════════
+const MNB_COL = 'menachemnewbuiz';
+let mnbRecords = [];
+let mnbEditingId = null;
+let mnbSortCol = 'effectiveDate';
+let mnbSortDir = 1;
+let mnbPending = [];
+
+// Load MNB records
+onSnapshot(collection(db, MNB_COL), snap => {
+  mnbRecords = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+  window._mnbRender();
+  const nb = document.getElementById('nb-mnb');
+  if(nb) nb.textContent = mnbRecords.length;
+});
+
+window._mnbRender = function() {
+  const search = (document.getElementById('mnb-search').value||'').toLowerCase();
+  const csrF = (document.getElementById('mnb-csr-filter').value||'').toLowerCase();
+  let filtered = mnbRecords.filter(r => {
+    const ms = !search ||
+      (r.clientName||'').toLowerCase().includes(search) ||
+      (r.csr||'').toLowerCase().includes(search) ||
+      (r.notes||'').toLowerCase().includes(search);
+    const mc = !csrF || (r.csr||'').toLowerCase() === csrF;
+    return ms && mc;
+  });
+  filtered.sort((a,b) => {
+    let va = (a[mnbSortCol]||'').toString().toLowerCase();
+    let vb = (b[mnbSortCol]||'').toString().toLowerCase();
+    return va < vb ? -mnbSortDir : va > vb ? mnbSortDir : 0;
+  });
+
+  // update count badge
+  const cb = document.getElementById('mnb-count-badge');
+  if(cb) cb.textContent = mnbRecords.length + ' record' + (mnbRecords.length!==1?'s':'');
+  const nb = document.getElementById('nb-mnb');
+  if(nb) nb.textContent = mnbRecords.length;
+
+  // populate CSR filter
+  const csrs = [...new Set(mnbRecords.map(r=>r.csr).filter(Boolean))].sort();
+  const sel = document.getElementById('mnb-csr-filter');
+  if(sel){
+    const cur = sel.value;
+    sel.innerHTML = '<option value="">All CSRs</option>' + csrs.map(c=>`<option value="${c.toLowerCase()}"${cur===c.toLowerCase()?' selected':''}>${esc(c)}</option>`).join('');
+  }
+
+  const tbody = document.getElementById('mnb-body');
+  const empty = document.getElementById('mnb-empty');
+  if(filtered.length === 0){
+    tbody.innerHTML = '';
+    if(empty) empty.style.display = 'block';
+    return;
+  }
+  if(empty) empty.style.display = 'none';
+  tbody.innerHTML = filtered.map(r => `
+    <tr>
+      <td class="mnb-csr">${esc(r.csr||'—')}</td>
+      <td class="mnb-client">${esc(r.clientName||'—')}</td>
+      <td class="mnb-date">${esc(r.effectiveDate||'—')}</td>
+      <td class="mnb-notes">${esc(r.notes||'—')}</td>
+      <td class="mnb-actions">
+        <button class="edit-btn" onclick="window._mnbEdit('${r.id}')">Edit</button>
+        <button class="del-btn" onclick="window._mnbDelete('${r.id}')">&#215;</button>
+      </td>
+    </tr>
+  `).join('');
+};
+
+window._mnbSort = function(col) {
+  if(mnbSortCol===col) mnbSortDir=-mnbSortDir; else { mnbSortCol=col; mnbSortDir=1; }
+  ['csr','clientName','effectiveDate'].forEach(c=>{
+    const el=document.getElementById('mnb-sort-'+c);
+    if(el) el.textContent = c===col ? (mnbSortDir===1?'↑':'↓') : '↕';
+  });
+  window._mnbRender();
+};
+
+window._mnbOpenAdd = function() {
+  mnbEditingId = null;
+  document.getElementById('mnb-modal-title').textContent = 'Add Entry';
+  document.getElementById('mnb-f-csr').value = '';
+  document.getElementById('mnb-f-client').value = '';
+  document.getElementById('mnb-f-date').value = '';
+  document.getElementById('mnb-f-notes').value = '';
+  document.getElementById('mnb-modal').classList.remove('hidden');
+};
+
+window._mnbEdit = function(id) {
+  const r = mnbRecords.find(x=>x.id===id); if(!r) return;
+  mnbEditingId = id;
+  document.getElementById('mnb-modal-title').textContent = 'Edit Entry';
+  document.getElementById('mnb-f-csr').value = r.csr||'';
+  document.getElementById('mnb-f-client').value = r.clientName||'';
+  document.getElementById('mnb-f-date').value = r.effectiveDate||'';
+  document.getElementById('mnb-f-notes').value = r.notes||'';
+  document.getElementById('mnb-modal').classList.remove('hidden');
+};
+
+window._mnbSaveEntry = async function() {
+  const entry = {
+    csr: document.getElementById('mnb-f-csr').value.trim(),
+    clientName: document.getElementById('mnb-f-client').value.trim(),
+    effectiveDate: document.getElementById('mnb-f-date').value.trim(),
+    notes: document.getElementById('mnb-f-notes').value.trim(),
+  };
+  if(!entry.clientName && !entry.csr) return;
+  setSyncing(true);
+  try {
+    if(mnbEditingId) {
+      await setDoc(doc(db, MNB_COL, mnbEditingId), { ...entry, id: mnbEditingId });
+    } else {
+      const id = uid();
+      await setDoc(doc(db, MNB_COL, id), { ...entry, id });
+    }
+  } finally { setSyncing(false); }
+  document.getElementById('mnb-modal').classList.add('hidden');
+};
+
+window._mnbDelete = async function(id) {
+  const r = mnbRecords.find(x=>x.id===id); if(!r) return;
+  const snap = {...r};
+  setSyncing(true);
+  await deleteDoc(doc(db, MNB_COL, id));
+  setSyncing(false);
+  showUndo(esc(snap.clientName||'Entry')+' deleted', async()=>{
+    await setDoc(doc(db, MNB_COL, snap.id), snap);
+  });
+};
+
+// Docx upload handler
+document.getElementById('mnb-doc-input').addEventListener('change', async function(e){
+  const file = e.target.files[0]; if(!file) return;
+  await mnbParseDocx(file);
+  this.value='';
+});
+const mnbZone = document.getElementById('mnb-upload-zone');
+mnbZone.addEventListener('dragover', e=>{ e.preventDefault(); mnbZone.classList.add('drag-over'); });
+mnbZone.addEventListener('dragleave', ()=>mnbZone.classList.remove('drag-over'));
+mnbZone.addEventListener('drop', async e=>{
+  e.preventDefault(); mnbZone.classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if(file && file.name.endsWith('.docx')) await mnbParseDocx(file);
+});
+
+async function mnbParseDocx(file) {
+  try {
+    const buf = await file.arrayBuffer();
+    const result = await window.mammoth.extractRawText({ arrayBuffer: buf });
+    const rows = mnbTextToRows(result.value);
+    if(rows.length===0){ alert('No entries found in this document.'); return; }
+    mnbShowPreview(rows);
+  } catch(err) {
+    console.error(err);
+    alert('Could not read this .docx file. Please make sure it is a valid Word document.');
+  }
+}
+
+function mnbTextToRows(text) {
+  const lines = text.split('\n').map(l=>l.trim()).filter(Boolean);
+  const rows = [];
+  const csrNames = ['menachem','mendy','hannah','israel','wilson','yitz','stuart','ben','mathew','matthew','mrs. ruben'];
+
+  for(let line of lines) {
+    if(/^\d{1,2}\/\d{1,2}\s+new business/i.test(line)) continue;
+    if(line.length < 5) continue;
+    const clean = line.replace(/^[-–•*]\s*/,'').trim();
+    if(!clean) continue;
+
+    let clientName='', notes=clean, csr='', effectiveDate='';
+
+    const dashIdx = clean.search(/[-–]/);
+    if(dashIdx > 0){ clientName=clean.substring(0,dashIdx).trim(); notes=clean.substring(dashIdx+1).trim(); }
+    else { const words=clean.split(' '); clientName=words.slice(0,2).join(' '); notes=words.slice(2).join(' '); }
+
+    const dateMatch = clean.match(/\b(\d{1,2}\/\d{1,2}(?:\/?\s*\d{2,4})?)\b/g);
+    if(dateMatch) effectiveDate = dateMatch[dateMatch.length-1];
+
+    const csrMatch = clean.match(/[-–]\s*([A-Za-z\/]+)\s*$/);
+    if(csrMatch){ const candidate=csrMatch[1].toLowerCase().replace('myself/','');
+      if(csrNames.some(n=>candidate.includes(n))){ csr=csrMatch[1].replace(/^myself\//i,'').trim(); notes=notes.replace(/[-–]\s*[A-Za-z\/]+\s*$/,'').trim(); }}
+    const myselfMatch = clean.match(/myself\/(\w+)/i);
+    if(myselfMatch && !csr) csr=myselfMatch[1];
+
+    if(!clientName) continue;
+    rows.push({ csr, clientName, effectiveDate, notes: notes||clean });
+  }
+  return rows;
+}
+
+function mnbShowPreview(rows) {
+  mnbPending = rows.map(r=>({...r}));
+  document.getElementById('mnb-preview-count').textContent = rows.length+' entr'+(rows.length!==1?'ies':'y')+' found';
+  document.getElementById('mnb-preview-body').innerHTML = rows.map((r,i)=>`
+    <tr>
+      <td><input value="${esc(r.csr)}" onchange="mnbPending[${i}].csr=this.value" style="width:90px"/></td>
+      <td><input value="${esc(r.clientName)}" onchange="mnbPending[${i}].clientName=this.value" style="width:140px"/></td>
+      <td><input value="${esc(r.effectiveDate)}" onchange="mnbPending[${i}].effectiveDate=this.value" style="width:70px"/></td>
+      <td><input value="${esc(r.notes)}" onchange="mnbPending[${i}].notes=this.value"/></td>
+    </tr>
+  `).join('');
+  document.getElementById('mnb-preview-modal').classList.remove('hidden');
+}
+
+window._mnbConfirmImport = async function() {
+  if(!mnbPending.length) return;
+  setSyncing(true);
+  let added=0;
+  for(const entry of mnbPending){
+    if(!entry.clientName && !entry.csr) continue;
+    const id=uid();
+    await setDoc(doc(db, MNB_COL, id), { ...entry, id });
+    added++;
+  }
+  setSyncing(false);
+  document.getElementById('mnb-preview-modal').classList.add('hidden');
+  mnbPending=[];
+};
+
+// ═══════════════════════════════════════════
+//  SHARED NAV & FORM HELPERS
+// ═══════════════════════════════════════════
 window.switchTab=function(name,el){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('visible'));
   document.querySelectorAll('.ni').forEach(n=>n.classList.remove('active'));
-  document.getElementById('sec-'+name).classList.add('visible');el.classList.add('active');
+  document.getElementById('sec-'+name).classList.add('visible');
+  el.classList.add('active');
 };
 window.toggleForm=function(id){document.getElementById(id).classList.toggle('open');};
 window.addRecord=async function(type,p){
@@ -1278,6 +1237,4 @@ window.addProspect=async function(){
 document.getElementById('sidebar-date').textContent=new Date().toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
 startListeners();
 </script>
-
-
 </body></html>
